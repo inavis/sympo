@@ -1,0 +1,73 @@
+
+body{
+    background: #000;
+}
+P{
+    color: #fff;
+}
+#heading{
+    display: inline-block;
+    margin-left: 500px;
+    color: #a00
+    
+}
+h3{
+    float: right;
+    margin-right: 15px;
+    margin-top: 25px;
+    color: brown
+}
+#main-header{
+    
+     border : 2px solid #000;
+     /*border-style: none;*/
+}
+    
+article{
+    display: inline-block;  
+    padding: 10px;
+    margin: 10px;
+}
+body section img{
+    max-width:  100%;
+    height:200px;
+ }
+ #section-1{
+    margin: auto;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+ .image{
+    height: 200px;
+    width:200px;  
+    background-size:cover  !important;
+   background-position: center !important; 
+}
+
+#display{
+    /*margin-left: 80px;
+    margin-right: 80px;
+    /*overflow: hidden;*/   /*removes all the overflowed content--outside the limit*/
+    margin: 0 auto;
+    display: block;
+    background:#a00;
+    color: #fff;
+    /*overflow-x: hidden;  /*to remove  horizontal scroll bar when not needed*/
+    position: absolute;
+    /*left: 100px;*/
+    width:90%;
+    margin-left: 50px;
+}
+.image:hover{
+    width: 350px;
+}
+
+#ques {
+     width: 90%;
+     margin-left: 50px;
+    display: inline-block;   /* all articles displayed continuously*/
+    border: 1px solid #a00;
+    padding: 10px;
+    background:#a00;
+    /*box-shadow: 3px 3px 10px 5px rgb(122, 25, 25) ;*/
+}
