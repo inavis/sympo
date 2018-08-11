@@ -1,121 +1,89 @@
 
-var region = document.getElementById("ques");
-var region1 = document.getElementById("display");
 
-var btne = document.getElementById("easy");
-var btnm = document.getElementById("medium");
-var btnh = document.getElementById("hard");
-
-
-
-
-
-function getEasy() {
-    alert("Button Clicked");
-    var c = document.getElementById("coins").innerHTML;
-    c = c - 50;
-    document.getElementById("coins").innerHTML = c;
-
-    //display all easy w=questions
-    /*  for( var i=0;i<10;i++){
-          var element = document.createElement('input');
-          element.setAttribute("type","button");
-          element.setAttribute("value",easy_value[i]);
-          element.setAttribute("id",i);
-          element.setAttribute("onclick","easyq('"+i+"')");
-          
-          region.appendChild(element);
-          region.innerHTML = region.innerHTML + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"  ;
-      }
-     */
-    document.getElementById("display").style.display = "block";
-
+       
+ 
+$('#easy').click(function(){
+    $('#my1').show();
+});
+$('#medium').click(function(){
+    alert("click")
+    $('#my2').show();
+});
+$('#hard').click(function(){
+    $('#my3').show();
+});
+function checkAns()
+{
+    //alert("pannii")
+    var coins = parseInt($("#coins").val())
+    alert(coins);
+        alert(getQues.qno)
+    var ans=document.getElementById('text').value
+    //alert(ans)
+    var id = getQues.qno;
+    if(ans==easy[id][1])
+    {
+        if(id>=0 && id<=5){
+            coins = coins+10;
+         }
+         else if(id>=6 && id<=8){
+            coins = coins+20;
+         }
+         else{ 
+            coins = coins+50;
+         }
+    }
+    else{
+        alert("done for life")
+    }
+    document.getElementById("coins").value = coins;
+    $('#dialog').hide()
+    $('#transparent-bg').hide()
 }
 
+ function getQues(id){
+     getQues.qno=id;
+     var coins = $("#coins").val()
+     alert(id)
+     if(id>=0 && id<=5){
+        coins = coins-50;
+     }
+     else if(id>=6 && id<=8){
+        coins = coins-30;
+     }
+     else{ 
+        coins = coins-10;
+     }
+     document.getElementById("coins").value = coins;
+     $('#transparent-bg').show();
+     var img= document.createElement('img');
+     img.src= easy[id][0];
+     document.getElementById("q1").appendChild(img);
+        $('#dialog').show();
+ }
 
-/*function getEasy(){
-    var c = document.getElementById("coins").innerHTML;
-    c=c-50;
-    document.getElementById("coins").innerHTML=c;
+ document.getElementById('timer').innerHTML =
+  01 + ":" + 00;
+startTimer();
 
-    //display all easy w=questions
-    for( var i=0;i<3;i++){
-        var element = document.createElement('input');
-        element.setAttribute("type","button");
-        element.setAttribute("value",i);
-        element.setAttribute("id",i);
-        element.setAttribute("onclick","easyq('"+i+"')");
-        
-        region.appendChild(element);
-        region.innerHTML = region.innerHTML + "   "  ;
-
-   }
-}*/
-
-function easyq(i) {
-    var q = easy[i][0];
-    document.getElementById("display").innerHTML = q + "<br/>" + "<br/>";
-
-
-    //textArea
-    var element = document.createElement('input');
-    element.setAttribute("type", "textArea");
-    element.setAttribute("placeholder", "bug or output");
-    element.setAttribute("id", "ans");
-
-    region1.appendChild(element);
-    region1.innerHTML = region1.innerHTML + "<br/>" + "<br/>";
-
-    //Submit
-    var element = document.createElement('input');
-    element.setAttribute("type", "button");
-    element.setAttribute("value", "Submit");
-    element.setAttribute("id", "submit");
-    element.setAttribute("onclick", "easyans('" + i + "')");
-
-    region1.appendChild(element);
-
-    var b = getElementById(i);
-    b.disable = true;
-
+function startTimer() {
+  var presentTime = document.getElementById('timer').innerHTML;
+  var timeArray = presentTime.split(/[:]+/);
+  var m = timeArray[0];
+  var s = checkSecond((timeArray[1] - 1));
+  if(s==59){m=m-1
+     if(m>0) m="time expired";
+}
+  //if(m<0){alert('timer completed')}
+  
+  document.getElementById('timer').innerHTML =
+    m + ":" + s;
+  setTimeout(startTimer, 1000);
 }
 
-btnm.addEventListener("click", getMedium);
-function getMedium() {
-    alert("Medium");
-}
-
-btnh.addEventListener("click", getHard);
-function getHard() {
-    alert("Hard");
-}
-
-
-function easyans(i) {
-    //alert("submit");
-    var ans = document.getElementById("ans").value;
-    var q = easy[i][1];
-    console.log(ans + " " + q);
-    if (ans == q) {
-        var c = document.getElementById("coins").innerHTML;
-        alert(c);
-        c = c + 10;
-        document.getElementById("coins").innerHTML = c;
-    }
-    c = document.getElementById("coins").innerHTML;
-    //alert(c);
-    if (c == 10) {
-        btne.removeEventListener("click", getEasy)
-        btnm.removeEventListener("click", getMedium)
-        //btnm.disabled = true;
-        //btne.disabled = true;
-
-    }
-    else if (c >= 10 && c <= 30) {
-        btnh.removeEventListener("click", getHard)
-    }
-    else if (c >= 20) {
-        btne.removeEventListener("click", getEasy)
-    }
+function checkSecond(sec) {
+  if (sec < 10 && sec >= 0) {sec = "0" + sec}; // add zero in front of numbers < 10
+  if (sec < 0) {sec = "59"};
+  return sec;
 }
 
