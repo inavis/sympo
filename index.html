@@ -1,218 +1,177 @@
 <html>
-    <head>
-        <title>DARE TO BID?</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="css1/bid.css" />
-    <body>
-        <div id="transparent-bg"></div>
-        <div class="heart-shape"></div>
-        <div id="timer"></div>
 
-        <header id="main-header">
-           <h1 id="heading"><img src="logo.jpg"/></h1>
-           <h3>COINS:<input type="number" value="50" id="coins" /></h3>
-           
-           
-        </header>
-        <section id="dialog">
-               <div>
-                  <div id="q1">
+<head>
+    <meta charset="UTF-8" />
+    <title>My Now Amazing Webpage</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="bid.css" />
 
-                  </div>
-                  <input type="textArea" placeholder="error or output" id="text"/>
-                  <button id="submit" onclick="checkAns()">SUBMIT</button>
-             </div>
-                 
-                
-        </section>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick-theme.css" />
+</head>
 
-        <section id="section-1">
-            
-                <article class="image">
-                        <!--<button id="easy" onclick="getEasy()">EASY</button> -->
-                    <img src="easy.jpg" id="easy" />
-                    
-                </article> 
-            
-                <article class="image" >
-                    <!-- <button id="medium">MEDIUM</button>-->
-                    <img src="medium.jpg" id="medium" />
-                </article>
-                <article class="image">
-                    <!-- <button id="hard">HARD</button>-->
-                    <img src="hard.jpg" id="hard" />
-                </article>
-            
-        </section>
-        
-        <section id="ques" >
+<body>
+    <!--To make bg gray-->
+    <div id="transparent-bg"></div>
+    <!--Heart-->
+    <div class="heart-shape"></div>
+    <!--Timer-->
+    <div id="timer"></div>
+    <!--Header-->
+    <header id="main-header">
+        <h1 id="heading">
+            <img src="images/logooo.png" />
+        </h1>
+        <h2>COINS:
+            <input type="number" value=50 id="coins" readonly/>
+        </h2>
+    </header>
+    <!--QUes dialog-->
+    <section id="dialog">
+        <div>
+            <div id="q1"></div>
+            <input type="textArea" placeholder="Line no or o/p.." id="text" />
+            <button id="submit" onclick="checkAns()" value="SUBMIT" style="height:50px;width:50px">SUBMIT</button>
+        </div>
+    </section>
+    <!--easy medium hard-->
+    <section id="section-1">
+        <center>
+            <article>
+                <button id="easy">
+                    <img src="easy.jpg">
+                </button>
+            </article>
+            <article>
+                <button id="medium">
+                    <img src="medium.jpg">
+                </button>
+            </article>
+            <article>
+                <button id="hard">
+                    <img src="hard.jpg">
+                </button>
+            </article>
+        </center>
+    </section>
+    <section id="slideshow"></section>
+    <div class="slider" id="slider1" style="position:absolute;  left: 300px; top:500px;width:60%;background-color:black;margin:auto;color:white;visibility: hidden;">
+        <div class='slide1'>
+            <img src="images/e1.jpg" id="0" onclick="getQues(this.id)">
+        </div>
 
-            <!--EASYYYYYYYYYYYYY -->
-                <div class="container" id ="my1">
-                        <h2 style="font-style:bold">EASY</h2>
-
-                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                                <!-- Indicators -->
-                                <ol class="carousel-indicators">
-                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#myCarousel" data-slide-to="1"></li>
-                                    <li data-target="#myCarousel" data-slide-to="2"></li>
-                                </ol> 
-                        
-                            <!-- Wrapper for slides -->
-                            <!-- easy -->
-                                <div class="carousel-inner">
-                                    
-                                    <div class="item active">
-                                        <div class="col-sm-4 img1"  >
-                                                <img src="e11.jpg" id="0" onclick="getQues(this.id)"alt="easy" style="width:100%;">
-                                        </div>
-                                        <div class="col-sm-4">
-                                                <img src="e2.jpg" alt="easy" id="1" onclick="getQues(this.id)" style="width:100%;">
-                                        </div>
-                                        <div class="col-sm-4">
-                                                <img src="e3.jpg" alt="easy" id="2" onclick="getQues(this.id)" style="width:100%;">
-                                        </div>
-                                        
-                                    </div>
-                                
-                        
-                                    <div class="item">
-                                        <div class="col-sm-4">
-                                        <img src="e5.jpg" onclick="getQues(this.id)" id="3"alt="easy" style="width:100%;">
-                                        </div>  
-
-                                        <div class="col-sm-4">
-                                        <img src="e6.jpg" onclick="getQues(this.id)" id="4" alt="easy" style="width:100%;">
-                                        </div> 
-
-                                        <div class="col-sm-4">
-                                        <img src="e7.jpg" alt="easy" id="5"  onclick="getQues(this.id)" style="width:100%;">
-                                        </div>   
-                                    </div>     
-
-                                </div>
-                                               
-                
-                               <!-- Left and right controls -->
-                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                                    <span class="glyphicon glyphicon-chevron-left"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                        
-                
-                    </div>
-                </div>
-
-    <!-- MEDIUMMMM-->
-    <div class="container" id ="my2">
-            <h2 style="font-style:bold">MEDIUM</h2>
-
-                <div id="myCarousel1" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel1" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel1" data-slide-to="1"></li>
-                        <li data-target="#myCarousel1" data-slide-to="2"></li>
-                    </ol> 
-            
-                <!-- Wrapper for slides -->
-                <!-- easy -->
-                    <div class="carousel-inner">
-                        
-                        <div class="item active">
-                            <div class="col-sm-4 img1"  >
-                                    <img src="e11.jpg" id="6" onclick="getQues(this.id)"alt="easy" style="width:100%;">
-                            </div>
-                            <div class="col-sm-4">
-                                    <img src="e2.jpg" alt="easy" id="7" onclick="getQues(this.id)" style="width:100%;">
-                            </div>
-                            <div class="col-sm-4">
-                                    <img src="e3.jpg" alt="easy" id="8" onclick="getQues(this.id)" style="width:100%;">
-                            </div>
-                            
-                        </div>
-                    
-                    </div>
-                                   
-    
-                   <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel1" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel1" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-            
-    
+        <div class='slide1'>
+            <img src="images/e2.jpg" id="1" onclick="getQues(this.id)">
+        </div>
+        <div class='slide1'>
+            <img src="images/e3.jpg" id="2" onclick="getQues(this.id)">
+        </div>
+        <div class='slide1'>
+            <img src="images/e4.jpg" id="3" onclick="getQues(this.id)">
+        </div>
+        <div class='slide1'>
+            <img src="images/e5.jpg" id="4" onclick="getQues(this.id)">
+        </div>
+        <div class='slide1'>
+            <img src="images/e6.jpg" id="5" onclick="getQues(this.id)">
+        </div>
+        <div class='slide1'>
+            <img src="images/e7.jpg" id="6" onclick="getQues(this.id)">
+        </div>
+        <div class='slide1'>
+            <img src="images/e8.jpg" id="7" onclick="getQues(this.id)">
+        </div>
+        <div class='slide1'>
+            <img src="images/e9.jpg" id="8" onclick="getQues(this.id)">
+        </div>
+        <div class='slide1'>
+            <img src="images/e10.jpg" id="9" onclick="getQues(this.id)">
         </div>
     </div>
-    <!-- HARDDDD-->
-    <div class="container" id ="my3">
-            <h2 style="font-style:bold">HARD</h2>
 
-                <div id="myCarousel2" class="carousel slide" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel2" data-slide-to="1"></li>
-                        <li data-target="#myCarousel2" data-slide-to="2"></li>
-                    </ol> 
-            
-                <!-- Wrapper for slides -->
-                <!-- easy -->
-                    <div class="carousel-inner">
-                        
-                        <div class="item active">
-                            <div class="col-sm-4 img1"  >
-                                    <img src="e11.jpg" id="9" onclick="getQues(this.id)"alt="easy" style="width:100%;">
-                            </div>
-                            <div class="col-sm-4">
-                                    <img src="e2.jpg" alt="easy" id="10" onclick="getQues(this.id)" style="width:100%;">
-                            </div>
-                            <div class="col-sm-4">
-                                    <img src="e3.jpg" alt="easy" id="11" onclick="getQues(this.id)" style="width:100%;">
-                            </div>
-                            
-                        </div>
-                    
-                    </div>
-                                   
-    
-                   <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="right carousel-control" href="#myCarousel2" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-            
-    
+    <!--Medium-->
+    <div class="slider" id="slider2" style="position:absolute;  left: 300px; top:500px;width:60%;background-color:black;margin:auto;color:white;visibility: hidden; ">
+        <div class='slide2'>
+            <img src="images/e2.jpg" id="10" onclick="getQues(this.id)">
+        </div>
+
+        <div class='slide2'>
+            <img src="images/e1.jpg" id="11" onclick="getQues(this.id)">
+        </div>
+        <div class='slide2'>
+            <img src="images/e1.jpg" id="12" onclick="getQues(this.id)">
+        </div>
+        <div class='slide2'>
+            <img src="images/e1.jpg" id="13" onclick="getQues(this.id)">
+        </div>
+        <div class='slide2'>
+            <img src="images/e1.jpg" id="14" onclick="getQues(this.id)">
+        </div>
+        <div class='slide2'>
+            <img src="images/e1.jpg" id="15" onclick="getQues(this.id)">
+        </div>
+        <div class='slide2'>
+            <img src="images/e1.jpg" id="16" onclick="getQues(this.id)">
+        </div>
+        <div class='slide2'>
+            <img src="images/e1.jpg" id="17" onclick="getQues(this.id)">
+        </div>
+        <div class='slide2'>
+            <img src="images/e1.jpg" id="18" onclick="getQues(this.id)">
+        </div>
+        <div class='slide2'>
+            <img src="images/e1.jpg" id="19" onclick="getQues(this.id)">
         </div>
     </div>
-     
-        </section>
-        <br/><br/><br/>
-        <section id="display">
-             
-        </section>
-        <section id="texts">
-              
-        </section>
-        
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-        <script src="js1/bid1.js" ></script>
-        <script src="js1/data.js" ></script>
+    <!--Hard-->
+    <div class="slider" id="slider3" style="position:absolute; left: 300px; top:500px;width:60%;background-color:black;margin:auto;color:white;visibility: hidden;">
+        <div class='slide3'>
+            <img src="images/e2.jpg" id="20" onclick="getQues(this.id)">
+        </div>
 
-    </body>
+        <div class='slide3'>
+            <img src="images/e1.jpg" id="21" onclick="getQues(this.id)">
+        </div>
+        <div class='slide3'>
+            <img src="images/e1.jpg" id="22" onclick="getQues(this.id)">
+        </div>
+        <div class='slide3'>
+            <img src="images/e1.jpg" id="23" onclick="getQues(this.id)">
+        </div>
+        <div class='slide3'>
+            <img src="images/e1.jpg" id="24" onclick="getQues(this.id)">
+        </div>
+        <div class='slide3'>
+            <img src="images/e1.jpg" id="25" onclick="getQues(this.id)">
+        </div>
+        <div class='slide3'>
+            <img src="images/e1.jpg" id="26" onclick="getQues(this.id)">
+        </div>
+        <div class='slide3'>
+            <img src="images/e1.jpg" id="27" onclick="getQues(this.id)">
+        </div>
+        <div class='slide3'>
+            <img src="images/e1.jpg" id="28" onclick="getQues(this.id)">
+        </div>
+        <div class='slide3'>
+            <img src="images/e1.jpg" id="29" onclick="getQues(this.id)">
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
+
+    <script type="text/javascript">
+       // $(document).ready(function () {
+
+
+    </script>
+
+    <script src="bid1.js"> </script>
+    <script src="data.js"> </script>
+
+
+</body>
+
 </html>

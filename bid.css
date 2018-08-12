@@ -1,6 +1,6 @@
 
 body{
-    background: rgba(255,255,255, 1);
+    background: rgba(0,0,0, 1);
 }
 P{
     color: #fff;
@@ -8,10 +8,11 @@ P{
 #heading{
     display: inline-block;
     margin-left: 500px;
+    margin-right: 30px; 
     color: #a00
     
 }
-h3{
+h2{
     float: right;
     margin-right: 15px;
     margin-top: 25px;
@@ -78,6 +79,7 @@ body section img{
     margin-left: 350px;
 }
 #submit{
+    size:500px;
    margin-left: 200px;
    background:black;
 	padding:5px 10px;
@@ -236,6 +238,8 @@ body section img{
     color: red;
 }
 
-#my1,#my2,#my3{
-    display: none;
+.slider img{
+    max-width: 95%;
+    width: 450px;
+    height: 250px;
 }

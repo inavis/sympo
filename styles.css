@@ -1,0 +1,15 @@
+body{
+    background:#ccc;
+  }
+ 
+  h3 {
+      background: #fff;
+      color: #3498db;
+      font-size: 36px;
+      line-height: 100px;
+      margin: 10px;
+      padding: 2%;
+      position: relative;
+      text-align: center;
+  }
+ 
