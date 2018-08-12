@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick-theme.css" />
 </head>
 
-<body>
+<body id="total">
     <!--To make bg gray-->
     <div id="transparent-bg"></div>
     <!--Heart-->
@@ -27,13 +27,17 @@
         </h2>
     </header>
     <!--QUes dialog-->
-    <section id="dialog">
+    <section class="dialog" id="dialog">
         <div>
             <div id="q1"></div>
-            <input type="textArea" placeholder="Line no or o/p.." id="text" />
-            <button id="submit" onclick="checkAns()" value="SUBMIT" style="height:50px;width:50px">SUBMIT</button>
+            <form>
+                <input type="textArea" placeholder="Line no or o/p.." id="text" />
+                <br>
+                <button id="submit" style="position:fixed;left: 450px;" onclick="checkAns()">SUBMIT</button>
+            </form>
         </div>
     </section>
+
     <!--easy medium hard-->
     <section id="section-1">
         <center>
@@ -173,5 +177,10 @@
 
 
 </body>
+<!-- end dialog-->
+<section class="dialog" id="end-dialog">
+    <img src="images/giphy.webp" />
+    <h2>U ARE DONE</h2>
+</section>
 
 </html>

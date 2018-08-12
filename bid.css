@@ -8,7 +8,7 @@ P{
 #heading{
     display: inline-block;
     margin-left: 500px;
-    margin-right: 30px; 
+    margin-right: 200px;
     color: #a00
     
 }
@@ -127,7 +127,7 @@ body section img{
     margin-left: 400px;
 }
 
-#dialog{
+.dialog{
     /*margin-left: 200px;
     margin-right: 200px; 
     z-index: 6;
@@ -165,8 +165,8 @@ body section img{
 	width: 100%; 
 	height: 100%; 
 	background:#000;
-	-moz-opacity: 0.30; 
-	opacity: 0.30;
+	-moz-opacity: 0.80; 
+	opacity: 0.80;
 	filter: alpha(opacity=30);
 	z-index: 1000; 
 	/*-webkit-animation: animateBackground 1s;
@@ -182,8 +182,10 @@ body section img{
 
 
 .heart-shape {
-	position: relative;
-	width: 50px;
+    position: relative;
+    left: 10px;
+    top:50px;
+    width: 50px;
 	-webkit-animation: heart-beats 1s infinite;
 	animation: heart-beats 1s infinite;
 }
@@ -235,6 +237,8 @@ body section img{
 
 
 #timer{
+    float: left;
+    font-size: 50px;
     color: red;
 }
 
