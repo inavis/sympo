@@ -2,10 +2,7 @@
 
 $('#easy').click(function () {
     alert("easy clicked")
-    document.getElementById('slideshow').innerHTML =
-        $('#slider1').css({ visibility: 'visible' })
-
-    $('#slider1').slick({
+    $('.slider').slick({
         dots: true,
         arrows: true,
         adaptiveHeight: true,
@@ -15,12 +12,17 @@ $('#easy').click(function () {
         //centerMode: true,
         centerPadding: '60px',
     });
-    $('.slide1').on('click', function () {
-        alert($('.slick-slide').index(this) - 3)
-        if ($('.slick-slide').index(this) - 3 < 0) $('#slider1').slick('slickRemove', $('.slick-slide').index(this))
-        $('#slider1').slick('slickRemove', $('.slick-slide').index(this) - 3)
+
+    $('.slide').on('click', function() {
+       // alert($('.slick-slide').index(this) -3); 
+       var currentIndex =$(this).data("slick-index"); //$('.slide').attr('data-slick-index');
+       alert(currentIndex);      
+        //$('.slider').slick('slickRemove', $('.slick-slide').index(this) -3)
+        $('.slider').slick('slickRemove', currentIndex );
+        });
+     $('.slider').css({ visibility: 'visible' });
+
     });
-});
 
 
 
@@ -28,9 +30,7 @@ $('#easy').click(function () {
 
 $('#medium').click(function () {
     alert("medium clicked")
-    $('#slider2').css({ visibility: 'visible' })
-
-    $('#slider2').slick({
+    $('.slider1').slick({
         dots: true,
         arrows: true,
         adaptiveHeight: true,
@@ -40,19 +40,20 @@ $('#medium').click(function () {
         //centerMode: true,
         centerPadding: '60px',
     });
-
-    $('.slide2').on('click', function () {
-        alert($('.slick-slide').index(this) - 3)
-        if ($('.slick-slide').index(this) - 3 < 0) $('#slider2').slick('slickRemove', $('.slick-slide').index(this))
-        $('#slider2').slick('slickRemove', $('.slick-slide').index(this) - 3)
+    $('.slide1').on('click', function() {
+        var currentIndex =$(this).data("slick-index");
+        alert(currentIndex );       
+        $('.slider1').slick('slickRemove',currentIndex );
     });
+
+    $('.slider1').css({ visibility: 'visible' });
+
+    
 });
 
 $('#hard').click(function () {
     alert("hard clicked")
-    $('#slider3').css({ visibility: 'visible' })
-
-    $('#slider3').slick({
+    $('.slider2').slick({
         dots: true,
         arrows: true,
         adaptiveHeight: true,
@@ -62,12 +63,16 @@ $('#hard').click(function () {
         //centerMode: true,
         centerPadding: '60px',
     });
-
-    $('.slide3').on('click', function () {
-        alert($('.slick-slide').index(this) - 3)
-        if ($('.slick-slide').index(this) - 3 < 0) $('#slider3').slick('slickRemove', $('.slick-slide').index(this))
-        $('#slider3').slick('slickRemove', $('.slick-slide').index(this) - 3)
+    $('.slide2').on('click', function() {
+        var currentIndex =$(this).data("slick-index");
+        alert(currentIndex);       
+        $('.slider2').slick('slickRemove', currentIndex);
     });
+    
+     $('.slider2').css({ visibility: 'visible' });
+
+
+
 });
 
 function checkAns() {
@@ -125,6 +130,8 @@ function check() {
         alert("GAme over")
     }
     $('.slider').css({ visibility: 'hidden' })
+    $('.slider1').css({ visibility: 'hidden' })
+    $('.slider2').css({ visibility: 'hidden' })
 
 }
 function getQues(id) {

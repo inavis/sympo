@@ -2,9 +2,16 @@
 
 <head>
     <meta charset="UTF-8" />
+    <!--serach engine optimization-description -->
+    <meta name="description" content="An interesting debugging event with bidding">
+    <meta name="keywords" content="dare to bid,bugfix,symposium,debugging">
+    <meta name="author" content="shiva shankari,subbulakshmi,sivani">
+
+    <!--to make if fit to any device -->
+    <meta name="viewport" content="width=device-width , initial-scale=0">
     <title>My Now Amazing Webpage</title>
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="bid.css" />
+    <link rel="stylesheet" href="css1/bid.css" />
 
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick-theme.css" />
@@ -20,9 +27,9 @@
     <!--Header-->
     <header id="main-header">
         <h1 id="heading">
-            <img src="images/logooo.png" />
+            <img src="css1/logo.png" />
         </h1>
-        <h2>COINS:
+        <h2 id="coins">COINS:
             <input type="number" value=50 id="coins" readonly/>
         </h2>
     </header>
@@ -30,11 +37,11 @@
     <section class="dialog" id="dialog">
         <div>
             <div id="q1"></div>
-            <form>
+            
                 <input type="textArea" placeholder="Line no or o/p.." id="text" />
                 <br>
                 <button id="submit" style="position:fixed;left: 450px;" onclick="checkAns()">SUBMIT</button>
-            </form>
+            
         </div>
     </section>
 
@@ -58,107 +65,112 @@
             </article>
         </center>
     </section>
-    <section id="slideshow"></section>
-    <div class="slider" id="slider1" style="position:absolute;  left: 300px; top:500px;width:60%;background-color:black;margin:auto;color:white;visibility: hidden;">
-        <div class='slide1'>
-            <img src="images/e1.jpg" id="0" onclick="getQues(this.id)">
+    <section id="slideshow">
+        
+    </section>
+    <section>
+    <div class="slider" id="slider1" style="position:absolute;  left: 15%; top:80%;height:30%;width:70%;background-color:black;margin:auto;color:white;visibility:hidden;">
+        <div class='slide'>
+            <img src="css1/easy/e1.jpg" id="0" onclick="getQues(this.id)">
         </div>
 
-        <div class='slide1'>
-            <img src="images/e2.jpg" id="1" onclick="getQues(this.id)">
+        <div class='slide'>
+            <img src="css1/easy/e2.jpg" id="1" onclick="getQues(this.id)">
         </div>
-        <div class='slide1'>
-            <img src="images/e3.jpg" id="2" onclick="getQues(this.id)">
+        <div class='slide'>
+            <img src="css1/easy/e3.jpg" id="2" onclick="getQues(this.id)">
         </div>
-        <div class='slide1'>
-            <img src="images/e4.jpg" id="3" onclick="getQues(this.id)">
+        <div class='slide'>
+            <img src="css1/easy/e4.jpg" id="3" onclick="getQues(this.id)">
         </div>
-        <div class='slide1'>
-            <img src="images/e5.jpg" id="4" onclick="getQues(this.id)">
+        <div class='slide'>
+            <img src="css1/easy/e5.jpg" id="4" onclick="getQues(this.id)">
         </div>
-        <div class='slide1'>
-            <img src="images/e6.jpg" id="5" onclick="getQues(this.id)">
+        <div class='slide'>
+            <img src="css1/easy/e6.jpg" id="5" onclick="getQues(this.id)">
         </div>
-        <div class='slide1'>
-            <img src="images/e7.jpg" id="6" onclick="getQues(this.id)">
+        <div class='slide'>
+            <img src="css1/easy/e7.jpg" id="6" onclick="getQues(this.id)">
         </div>
-        <div class='slide1'>
-            <img src="images/e8.jpg" id="7" onclick="getQues(this.id)">
+        <div class='slide'>
+            <img src="css1/easy/e8.jpg" id="7" onclick="getQues(this.id)">
         </div>
-        <div class='slide1'>
-            <img src="images/e9.jpg" id="8" onclick="getQues(this.id)">
+        <div class='slide'>
+            <img src="css1/easy/e9.jpg" id="8" onclick="getQues(this.id)">
         </div>
-        <div class='slide1'>
-            <img src="images/e10.jpg" id="9" onclick="getQues(this.id)">
+        <div class='slide'>
+            <img src="css1/easy/e10.jpg" id="9" onclick="getQues(this.id)">
         </div>
     </div>
-
+    </section>  
+    <br/><br/><br/><br/><br/><br/>
     <!--Medium-->
-    <div class="slider" id="slider2" style="position:absolute;  left: 300px; top:500px;width:60%;background-color:black;margin:auto;color:white;visibility: hidden; ">
-        <div class='slide2'>
-            <img src="images/e2.jpg" id="10" onclick="getQues(this.id)">
+    <div class="slider1"  style="position:absolute;  left:15%; top:80%;width:70%;height:30%;background-color:black;margin:auto;color:white;visibility:hidden; ">
+        <div class='slide1'>
+            <img src="css1/easy/e2.jpg" id="10" onclick="getQues(this.id)">
         </div>
 
-        <div class='slide2'>
-            <img src="images/e1.jpg" id="11" onclick="getQues(this.id)">
+        <div class='slide1'>
+            <img src="css1/easy/e1.jpg" id="11" onclick="getQues(this.id)">
         </div>
-        <div class='slide2'>
-            <img src="images/e1.jpg" id="12" onclick="getQues(this.id)">
+        <div class='slide1'>
+            <img src="css1/easy/e1.jpg" id="12" onclick="getQues(this.id)">
         </div>
-        <div class='slide2'>
-            <img src="images/e1.jpg" id="13" onclick="getQues(this.id)">
+        <div class='slide1'>
+            <img src="css1/easy/e1.jpg" id="13" onclick="getQues(this.id)">
         </div>
-        <div class='slide2'>
-            <img src="images/e1.jpg" id="14" onclick="getQues(this.id)">
+        <div class='slide1'>
+            <img src="css1/easy/e1.jpg" id="14" onclick="getQues(this.id)">
         </div>
-        <div class='slide2'>
-            <img src="images/e1.jpg" id="15" onclick="getQues(this.id)">
+        <div class='slide1'>
+            <img src="css1/easy/e1.jpg" id="15" onclick="getQues(this.id)">
         </div>
-        <div class='slide2'>
-            <img src="images/e1.jpg" id="16" onclick="getQues(this.id)">
+        <div class='slide1'>
+            <img src="css1/easy/e1.jpg" id="16" onclick="getQues(this.id)">
         </div>
-        <div class='slide2'>
-            <img src="images/e1.jpg" id="17" onclick="getQues(this.id)">
+        <div class='slide1'>
+            <img src="css1/easy/e1.jpg" id="17" onclick="getQues(this.id)">
         </div>
-        <div class='slide2'>
-            <img src="images/e1.jpg" id="18" onclick="getQues(this.id)">
+        <div class='slide1'>
+            <img src="css1/easy/e1.jpg" id="18" onclick="getQues(this.id)">
         </div>
-        <div class='slide2'>
-            <img src="images/e1.jpg" id="19" onclick="getQues(this.id)">
+        <div class='slide1'>
+            <img src="css1/easy/e1.jpg" id="19" onclick="getQues(this.id)">
         </div>
     </div>
+    <br/><br/><br/><br/><br/><br/>
     <!--Hard-->
-    <div class="slider" id="slider3" style="position:absolute; left: 300px; top:500px;width:60%;background-color:black;margin:auto;color:white;visibility: hidden;">
-        <div class='slide3'>
-            <img src="images/e2.jpg" id="20" onclick="getQues(this.id)">
+    <div class="slider2" id="slider3" style="position:absolute; left: 15%; top:80%;height:30%;width:70%;background-color:black;margin:auto;color:white;visibility:hidden;">
+        <div class='slide2'>
+            <img src="css1/easy/e2.jpg" id="20" onclick="getQues(this.id)">
         </div>
 
-        <div class='slide3'>
-            <img src="images/e1.jpg" id="21" onclick="getQues(this.id)">
+        <div class='slide2'>
+            <img src="css1/easy/e1.jpg" id="21" onclick="getQues(this.id)">
         </div>
-        <div class='slide3'>
-            <img src="images/e1.jpg" id="22" onclick="getQues(this.id)">
+        <div class='slide2'>
+            <img src="css1/easy/e1.jpg" id="22" onclick="getQues(this.id)">
         </div>
-        <div class='slide3'>
-            <img src="images/e1.jpg" id="23" onclick="getQues(this.id)">
+        <div class='slide2'>
+            <img src="css1/easy/e1.jpg" id="23" onclick="getQues(this.id)">
         </div>
-        <div class='slide3'>
-            <img src="images/e1.jpg" id="24" onclick="getQues(this.id)">
+        <div class='slide2'>
+            <img src="css1/easy/e1.jpg" id="24" onclick="getQues(this.id)">
         </div>
-        <div class='slide3'>
-            <img src="images/e1.jpg" id="25" onclick="getQues(this.id)">
+        <div class='slide2'>
+            <img src="css1/easy/e1.jpg" id="25" onclick="getQues(this.id)">
         </div>
-        <div class='slide3'>
-            <img src="images/e1.jpg" id="26" onclick="getQues(this.id)">
+        <div class='slide2'>
+            <img src="css1/easy/e1.jpg" id="26" onclick="getQues(this.id)">
         </div>
-        <div class='slide3'>
-            <img src="images/e1.jpg" id="27" onclick="getQues(this.id)">
+        <div class='slide2'>
+            <img src="css1/easy/e1.jpg" id="27" onclick="getQues(this.id)">
         </div>
-        <div class='slide3'>
-            <img src="images/e1.jpg" id="28" onclick="getQues(this.id)">
+        <div class='slide2'>
+            <img src="css1/easy/e1.jpg" id="28" onclick="getQues(this.id)">
         </div>
-        <div class='slide3'>
-            <img src="images/e1.jpg" id="29" onclick="getQues(this.id)">
+        <div class='slide2'>
+            <img src="css1/easy/e1.jpg" id="29" onclick="getQues(this.id)">
         </div>
     </div>
 
@@ -167,19 +179,74 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
 
     <script type="text/javascript">
-       // $(document).ready(function () {
+        $(document).ready(function () {
+
+    
+
+
+
+    
+    
+   
+
+    
+    
+       
+    /*$('.slide1').on('click', function () {
+        alert($('.slick-slide').index(this) - 3)
+        if ($('.slick-slide').index(this) - 3 < 0) $('#slider1').slick('slickRemove', $('.slick-slide').index(this))
+        $('#slider1').slick('slickRemove', $('.slick-slide').index(this) - 3)
+    });*/
+
+    
+   /* $('#slider2').slick({
+        dots: true,
+        arrows: true,
+        adaptiveHeight: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        //centerMode: true,
+        centerPadding: '60px',
+    });
+
+    $('.slide2').on('click', function () {
+        alert($('.slick-slide').index(this) - 3)
+        if ($('.slick-slide').index(this) - 3 < 0) $('#slider2').slick('slickRemove', $('.slick-slide').index(this))
+        $('#slider2').slick('slickRemove', $('.slick-slide').index(this) - 3)
+    });
+
+    
+    $('#slider3').slick({
+        dots: true,
+        arrows: true,
+        adaptiveHeight: true,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        //centerMode: true,
+        centerPadding: '60px',
+    });
+
+    $('.slide3').on('click', function () {
+        alert($('.slick-slide').index(this) - 3)
+        if ($('.slick-slide').index(this) - 3 < 0) $('#slider3').slick('slickRemove', $('.slick-slide').index(this))
+        $('#slider3').slick('slickRemove', $('.slick-slide').index(this) - 3)
+    });*/
+});
+    
 
 
     </script>
 
-    <script src="bid1.js"> </script>
-    <script src="data.js"> </script>
+    <script src="js1/bid1.js"> </script>
+    <script src="js1/data.js"> </script>
 
 
 </body>
 <!-- end dialog-->
 <section class="dialog" id="end-dialog">
-    <img src="images/giphy.webp" />
+    <img src="css1/easy/giphy.webp" />
     <h2>U ARE DONE</h2>
 </section>
 

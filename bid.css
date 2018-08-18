@@ -7,16 +7,15 @@ P{
 }
 #heading{
     display: inline-block;
-    margin-left: 500px;
-    margin-right: 200px;
-    color: #a00
+    margin-left: 40%;
+    color: #f00
     
 }
 h2{
     float: right;
     margin-right: 15px;
-    margin-top: 25px;
-    color: brown
+    margin-top: 2%;
+    color:red;
 }
 #main-header{
     
@@ -31,18 +30,14 @@ h2{
 }
 body section img{
     max-width:  100%;
-    height:200px;
+    height:30%;
  }
+ 
  #section-1{
     margin: auto;
     margin-top: 20px;
 }
- .image{
-    height: 200px;
-    width:200px;  
-    background-size:cover  !important;
-   background-position: center !important; 
-}
+ 
 
 #display{
     /*margin-left: 80px;
@@ -58,9 +53,7 @@ body section img{
     width:70%;
     margin-left: 200px;
 }
-.image:hover{
-    width: 350px;
-}
+
 
 #ques {
      width: 90%;
@@ -245,5 +238,19 @@ body section img{
 .slider img{
     max-width: 95%;
     width: 450px;
-    height: 250px;
+    height: 200px;
+}
+.slider1 img{
+    max-width: 95%;
+    width: 450px;
+    height: 200px;
+}
+.slider2 img{
+    max-width: 95%;
+    width: 450px;
+    height: 200px;
+}
+
+.heart-shape,#timer{
+    position: fixed;
 }
