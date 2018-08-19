@@ -1,0 +1,111 @@
+<script>
+    var ind1 = 0, ind2 = 1, ind3 = 2;
+    var i = 0;
+    var images = [];
+    var time = 3000;
+
+    images[0] = "images/0.png";
+    images[1] = "images/1.png";
+    images[2] = "images/2.png";
+    images[3] = "images/3.png";
+    images[4] = "images/4.png";
+    images[5] = "images/5.png";
+    images[6] = "images/6.png";
+    images[7] = "images/7.png";
+    images[8] = "images/8.png";
+    images[9] = "images/9.png";
+
+    function next() {
+        // if (typeof id === "number") alert(id);
+
+        if (i > images.length - 1)
+            i = 0;
+        if (i < 0)
+            i = images.length - 1;
+        ind1 = i;
+        document.slide1.src = images[i++];
+        if (i > images.length - 1)
+            i = 0;
+        if (i < 0)
+            i = images.length - 1;
+        ind2 = i;
+        document.slide2.src = images[i++];
+        if (i > images.length - 1)
+            i = 0;
+        if (i < 0)
+            i = images.length - 1;
+        ind3 = i;
+        document.slide3.src = images[i++];
+        if (i > images.length - 1)
+            i = 0;
+        if (i < 0)
+            i = images.length - 1;
+        //   console.log("ind1 " + ind1 + " ind2 " + ind2 + " ind3 " + ind3)
+
+        //setTimeout("changeImg()", time);
+    }
+
+    function prev() {
+        alert(i);
+        for (var k = 0; k < 6; k++) {
+            if (i === -1) i = images.length - 1;
+            i = i - 1;
+        }
+
+        if (i < 0)
+            i = images.length - 1;
+        if (i > images.length - 1)
+            i = 0;
+        ind1 = i;
+        document.slide1.src = images[i++];
+        if (i < 0)
+            i = images.length - 1;
+        if (i > images.length - 1)
+            i = 0;
+
+        ind2 = i;
+        document.slide2.src = images[i++];
+        if (i < 0)
+            i = images.length - 1;
+        if (i > images.length - 1)
+            i = 0;
+
+        ind3 = i;
+        document.slide3.src = images[i++];
+        if (i < 0)
+            i = images.length - 1;
+        if (i > images.length - 1)
+            i = 0;
+        console.log("ind1 " + ind1 + " ind2 " + ind2 + " ind3 " + ind3 + " i is " + i)
+        //i = i - 4;
+        //setTimeout("changeImg()", time);
+    }
+    function remove(id) {
+        console.log("before :" + images);
+        var remove;
+        if (id === '0') remove = ind1;
+        else if (id === '1') remove = ind2;
+        else remove = ind3;
+        images.splice(remove, 1);
+        console.log("after :" + images);
+        if (images.length == 2)
+            document.getElementById("2").remove();
+        if (images.length == 1)
+            document.getElementById("1").remove();
+        if (images.length == 0) {
+            document.getElementById("0").remove();
+            document.getElementById("prevB").remove();
+            document.getElementById("nextB").remove();
+        }
+
+        next(parseInt(id) + parseInt(1));
+        //changeImg();
+    }
+    window.onload = next
+
+</script>
+<button id="prevB" width="200" height="200" onclick="prev()">PREV</button>
+<img id=0 name="slide1" width="400" height="200" onclick="remove(this.id)">
+<img id=1 name="slide2" width="400" height="200" onclick="remove(this.id)">
+<img id=2 name="slide3" width="400" height="200" onclick="remove(this.id)">
+<button id="nextB" width="200" height="200" onclick="next()">NEXT</button>
