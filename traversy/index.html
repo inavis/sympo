@@ -1,98 +1,163 @@
-<script>
-    var ind1 = 0, ind2 = 1, ind3 = 2;
-    var i = 0;
-    var images = [];
-    var time = 3000;
+<body>
 
-    images[0] = "images/0.png";
-    images[1] = "images/1.png";
-    images[2] = "images/2.png";
-    images[3] = "images/3.png";
-    images[4] = "images/4.png";
-    images[5] = "images/5.png";
-    images[6] = "images/6.png";
-    images[7] = "images/7.png";
-    images[8] = "images/8.png";
-    images[9] = "images/9.png";
+    <button id="0prev" width="200" height="200" class="prevButton">PREV</button>
+    <img id="00id" class="s" width="400" height="200">
+    <img id="01id" class="s" width="400" height="200">
+    <img id="02id" class="s" width="400" height="200">
+    <button id="0next" width="200" height="200" class="nextButton">NEXT</button>
+    <br>
+    <button id="1prev" width="200" height="200" class="prevButton">PREV</button>
+    <img id="10id" class="s" width="400" height="200">
+    <img id="11id" class="s" width="400" height="200">
+    <img id="12id" class="s" width="400" height="200">
+    <button id="1next" width="200" height="200" class="nextButton">NEXT</button>
 
-    function next(id) {
-        // if (typeof id === "number") alert(id);
+   
+   <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>-->
+   <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
 
-        i = boundary(i);
-        ind1 = i;
-        document.slide1.src = images[i++];
-        i = boundary(i);
-        ind2 = i;
-        document.slide2.src = images[i++];
-        i = boundary(i);
-        ind3 = i;
-        document.slide3.src = images[i++];
-        i = boundary(i);
-        if (typeof id === "number") {
-            alert("removed?")
-            prev();
+        var ind1 = [0, 0], ind2 = [1, 1], ind3 = [2, 2];
+        var index = [0, 0];
+        var images = [[]];
+        var time = 3000;
+        images = [
+            ["images/0.png",
+                "images/1.png",
+                "images/2.png",
+                "images/3.png",
+                "images/4.png",
+                "images/5.png",
+                "images/6.png",
+                "images/7.png",
+                "images/8.png",
+                "images/9.png",
+            ],
+            ["images/0.png",
+                "images/1.png",
+                "images/2.png",
+                "images/3.png",
+                "images/4.png",
+                "images/5.png",
+                "images/6.png",
+                "images/7.png",
+                "images/8.png",
+                "images/9.png",
+            ],
+        ]
+        console.log(images[0])
+        //  images[0].splice(1, 1);
+        //  console.log(images[0])
+        function next(id) {
+            alert("id inside next " + id)
+            index[id] = boundary(id, index[id]);
+            ind1[id] = index[id];
+            var x = id + "0id";
+            document.getElementById(x).src = images[id][index[id]++]
+
+            index[id] = boundary(id, index[id]);
+            ind2[id] = index[id];
+            var x = id + "1id";
+            document.getElementById(x).src = images[id][index[id]++]
+
+            index[id] = boundary(id, index[id]);
+            ind3[id] = index[id];
+            var x = id + "2id";
+            document.getElementById(x).src = images[id][index[id]++]
+
+            index[id] = boundary(id, index[id]);
+            if (typeof id === "number") {
+                alert("removed?")
+                prev(id);
+            }
+            console.log("ind1[0] " + ind1[0] + " ind2[0] " + ind2[0] + " ind3[0] " + ind3[0])
+        } //setTimeout("changeImg()", time);
+
+        function prev(id) {
+            //alert(i);
+            for (var k = 0; k < 6; k++) {
+                if (index[id] === -1) index[id] = images[id].length - 1;
+                index[id] = index[id] - 1;
+            }
+
+            index[id] = boundary(id, index[id]);
+            ind1[id] = index[id];
+            var x = id + "0id";
+            document.getElementById(x).src = images[id][index[id]++]
+
+            index[id] = boundary(id, index[id]);
+            ind2[id] = index[id];
+            var x = id + "1id";
+            document.getElementById(x).src = images[id][index[id]++]
+
+
+            index[id] = boundary(id, index[id]);
+            ind3[id] = index[id];
+            var x = id + "2id";
+            document.getElementById(x).src = images[id][index[id]++]
+
+            index[id] = boundary(id, index[id]);
+
+
+
+            //console.log("ind1 " + ind1[id] + " ind2 " + ind2[id] + " ind3 " + ind3[id] + " i is " + i)
+            //i = i - 4;
+            //setTimeout("changeImg()", time);
         }
-
-
-        //setTimeout("changeImg()", time);
-    }
-
-    function prev() {
-        alert(i);
-        for (var k = 0; k < 6; k++) {
-            if (i === -1) i = images.length - 1;
-            i = i - 1;
+        function boundary(id, i) {
+            if (i < 0)
+                i = images[id].length - 1;
+            if (i > images[id].length - 1)
+                i = 0;
+            return i;
         }
-
-        i = boundary(i);
-        ind1 = i;
-        document.slide1.src = images[i++];
-        i = boundary(i);
-        ind2 = i;
-        document.slide2.src = images[i++];
-        i = boundary(i);
-
-        ind3 = i;
-        document.slide3.src = images[i++];
-        i = boundary(i);
-        console.log("ind1 " + ind1 + " ind2 " + ind2 + " ind3 " + ind3 + " i is " + i)
-        //i = i - 4;
-        //setTimeout("changeImg()", time);
-
-    }
-    function boundary(id) {
-        if (i < 0)
-            i = images.length - 1;
-        if (i > images.length - 1)
-            i = 0;
-        return i;
-    }
-    function remove(id) {
-        console.log("before :" + images);
-        var remove;
-        if (id === '0') remove = ind1;
-        else if (id === '1') remove = ind2;
-        else remove = ind3;
-        images.splice(remove, 1);
-        console.log("after :" + images);
-        if (images.length == 2)
-            document.getElementById("2").remove();
-        if (images.length == 1)
-            document.getElementById("1").remove();
-        if (images.length == 0) {
-            document.getElementById("0").remove();
-            document.getElementById("prevB").remove();
-            document.getElementById("nextB").remove();
+        function remove(row, col) {
+            alert("alert inside remove" + row)
+            // console.log("this working?" + images[0]);
+            console.log("before :" + images[row]);
+            var remove_col;
+            if (col === '0') remove = ind1[row];
+            else if (col === '1') remove = ind2[row];
+            else remove_col = ind3[row];
+            console.log(row + remove_col)
+            images[row].splice(remove_col, 1);
+            console.log("after :" + images[row]);
+            if (images[row].length == 2)
+                document.getElementById(id + "2id").remove();
+            if (images[row].length == 1)
+                document.getElementById(id + "1id").remove();
+            if (images[row].length == 0) {
+                document.getElementById(id + "0id").remove();
+                document.getElementById(id + "prevB").remove();
+                document.getElementById(id + "nextB").remove();
+            }
+            next(parseInt(row));
+            //changeImg();
         }
+        window.onload = next('0');
+        window.onload = next('1');
 
-        next(parseInt(remove) + parseInt(1));
-        //changeImg();
-    }
-    window.onload = next
+        $('.prevButton').click(function () {
+            var id = $(this).attr('id');
+            prev(id.charAt(0));
 
-</script>
-<button id="prevB" width="200" height="200" onclick="prev()">PREV</button>
-<img id=0 name="slide1" width="400" height="200" onclick="remove(this.id)">
-<img id=1 name="slide2" width="400" height="200" onclick="remove(this.id)">
-<img id=2 name="slide3" width="400" height="200" onclick="remove(this.id)">
-<button id="nextB" width="200" height="200" onclick="next(this.id)">NEXT</button>
+        });
+
+        $('.nextButton').click(function () {
+            alert("next clicked")
+            var id = $(this).attr('id');
+            next(id.charAt(0));
+        })
+     //   var classname = document.getElementsByClassName("s");
+        
+        $('.s').click(function () {
+            var id = $(this).attr('id');
+            console.log(id)
+            remove(id.charAt(0), id.charAt(1));
+
+        });
+
+    </script>
+ 
+
+</body>
