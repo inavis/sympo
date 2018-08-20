@@ -111,13 +111,13 @@
                 i = 0;
             return i;
         }
-        function remove(row, col) {
+        function remove_function(row, col) {
             alert("alert inside remove" + row)
             // console.log("this working?" + images[0]);
             console.log("before :" + images[row]);
             var remove_col;
-            if (col === '0') remove = ind1[row];
-            else if (col === '1') remove = ind2[row];
+            if (col === '0') remove_col = ind1[row];
+            else if (col === '1') remove_col = ind2[row];
             else remove_col = ind3[row];
             console.log(row + remove_col)
             images[row].splice(remove_col, 1);
@@ -153,7 +153,7 @@
         $('.s').click(function () {
             var id = $(this).attr('id');
             console.log(id)
-            remove(id.charAt(0), id.charAt(1));
+            remove_function(id.charAt(0), id.charAt(1));
 
         });
 
