@@ -5,16 +5,14 @@
     <!--serach engine optimization-description -->
     <meta name="description" content="An interesting debugging event with bidding">
     <meta name="keywords" content="dare to bid,bugfix,symposium,debugging">
-    <meta name="author" content="shiva shankari,subbulakshmi,sivani">
+    <meta name="author" content="Shiva Shankari.G,Subbulakshmi.V,Sivani.S.S">
 
     <!--to make if fit to any device -->
     <meta name="viewport" content="width=device-width , initial-scale=0">
-    <title>My Now Amazing Webpage</title>
+    <title>JUDGE THE CODE</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="bid.css" />
 
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick-theme.css" />
 </head>
 
 <body id="total">
@@ -86,17 +84,56 @@
     <img id="21id" class="s" width="400" height="200">
     <img id="22id" class="s" width="400" height="200">
     <button id="2next" width="200" height="200" class="nextButton">NEXT</button>
-
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
     <script src="bid1.js"> </script>
     <script src="data.js"> </script>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
 
+    <!-- <script src="slideshow.js" type="text/javascript" charset="utf-8"></script>-->
     <script>
 
-        var ind1 = [0, 0,0], ind2 = [1, 1,1], ind3 = [2, 2,2];
-        var index = [0, 0,0];
+        var ind1 = [0, 0, 0], ind2 = [1, 1, 1], ind3 = [2, 2, 2];
+        var index = [0, 0, 0];
         var images = [[]];
+        var Ques0 = [[]], Ques1 = [[]], Ques2 = [[]];
         var time = 3000;
+        Ques0 = [
+            ["images/0.jpg", "0"],
+            ["images/1.jpg", "0"],
+            ["images/2.jpg", "0"],
+            ["images/3.jpg", "0"],
+            ["images/4.jpg", "0"],
+            ["images/5.jpg", "0"],
+            ["images/6.jpg", "0"],
+            ["images/7.jpg", "0"],
+            ["images/8.jpg", "0"],
+            ["images/9.jpg", "0"]];
+        Ques1 = [
+            ["images/0.jpg", "1"],
+            ["images/1.jpg", "1"],
+            ["images/2.jpg", "1"],
+            ["images/3.jpg", "1"],
+            ["images/4.jpg", "1"],
+            ["images/5.jpg", "1"],
+            ["images/6.jpg", "1"],
+            ["images/7.jpg", "1"],
+            ["images/8.jpg", "1"],
+            ["images/9.jpg", "1"]];
+        Ques2 = [
+            ["images/0.jpg", "2"]
+            ["images/1.jpg", "2"],
+            ["images/2.jpg", "2"],
+            ["images/3.jpg", "2"],
+            ["images/4.jpg", "2"],
+            ["images/5.jpg", "2"],
+            ["images/6.jpg", "2"],
+            ["images/7.jpg", "2"],
+            ["images/8.jpg", "2"],
+            ["images/9.jpg", "2"],
+
+
+
+        ];
+
         images = [
             ["images/0.jpg",
                 "images/1.jpg",
@@ -133,10 +170,8 @@
             ]
         ]
         console.log(images[0])
-        //  images[0].splice(1, 1);
-        //  console.log(images[0])
         function next(id) {
-            //alert("id inside next " + id)
+            var flag = 1;
             index[id] = boundary(id, index[id]);
             ind1[id] = index[id];
             var x = id + "0id";
@@ -146,22 +181,21 @@
             ind2[id] = index[id];
             var x = id + "1id";
             document.getElementById(x).src = images[id][index[id]++]
-
+            if (index[id] == images[id].length - 1) flag = 0
             index[id] = boundary(id, index[id]);
             ind3[id] = index[id];
             var x = id + "2id";
             document.getElementById(x).src = images[id][index[id]++]
 
             index[id] = boundary(id, index[id]);
-            if (typeof id === "number") {
-              //  alert("removed?")
+            if (typeof id === "number" && flag === 1) {
                 prev(id);
             }
             console.log("ind1[0] " + ind1[0] + " ind2[0] " + ind2[0] + " ind3[0] " + ind3[0])
-        } //setTimeout("changeImg()", time);
+        }
+
 
         function prev(id) {
-            //alert(i);
             for (var k = 0; k < 6; k++) {
                 if (index[id] === -1) index[id] = images[id].length - 1;
                 index[id] = index[id] - 1;
@@ -184,12 +218,6 @@
             document.getElementById(x).src = images[id][index[id]++]
 
             index[id] = boundary(id, index[id]);
-
-
-
-            //console.log("ind1 " + ind1[id] + " ind2 " + ind2[id] + " ind3 " + ind3[id] + " i is " + i)
-            //i = i - 4;
-            //setTimeout("changeImg()", time);
         }
         function boundary(id, i) {
             if (i < 0)
@@ -199,14 +227,35 @@
             return i;
         }
         function remove_function(row, col) {
-          //  alert("alert inside remove" + row)
-            // console.log("this working?" + images[0]);
+
             console.log("before :" + images[row]);
             var remove_col;
-            if (col === '0') remove_col = ind1[row];
-            else if (col === '1') remove_col = ind2[row];
-            else remove_col = ind3[row];
-            console.log(row + remove_col)
+            if (col === '0') {
+                remove_col = ind1[row];
+                getQues(row, remove_col);
+                console.log("q before remove " + Ques0[row]);
+                Ques0.splice(row, 1);
+                console.log("q after remove " + Ques0[row]);
+
+            }
+            else if (col === '1') {
+                remove_col = ind2[row];
+                getQues(row, remove_col);
+                console.log("q before remove " + Ques1[row]);
+                Ques1.splice(row, 1);
+                console.log("q after remove " + Ques1[row]);
+
+            }
+            else {
+
+                remove_col = ind3[row];
+                getQues(row, remove_col);
+                console.log("q before remove " + Ques2[row]);
+                Ques2.splice(row, 1);
+                console.log("q after remove " + Ques2[row]);
+
+            }
+            console.log("image to be removed " + row + remove_col)
             images[row].splice(remove_col, 1);
             console.log("after :" + images[row]);
             if (images[row].length == 2)
@@ -218,7 +267,9 @@
                 document.getElementById(row + "prev").remove();
                 document.getElementById(row + "next").remove();
             }
+
             next(parseInt(row));
+
             //changeImg();
         }
         window.onload = next('0');
@@ -232,18 +283,43 @@
         });
 
         $('.nextButton').click(function () {
-          //  alert("next clicked")
             var id = $(this).attr('id');
             next(id.charAt(0));
         })
-     //   var classname = document.getElementsByClassName("s");
-        
+
         $('.s').click(function () {
             var id = $(this).attr('id');
             console.log(id)
             remove_function(id.charAt(0), id.charAt(1));
 
         });
+        function getQues(row, col) {
+            getQues.row = row;
+            getQues.col = col;
+            alert("new getQues?");
+            var coins = $("#coins").val()
+            var img = document.createElement('img');
+            if (row === '0') {
+                alert("row 0 col is " + col);
+                coins = coins - 50;
+                img.src = Ques0[col][0];
+            }
+            else if (row === '1') {
+                alert("row 1 col is " + col);
+                coins = coins - 20;
+                img.src = Ques1[col][0];
+            }
+            else {
+                alert("row 2 col is " + col);
+                coins = coins - 10;
+                img.src = Ques2[col][0];
+            }
+            document.getElementById("coins").value = coins;
+            $('#transparent-bg').show();
+            document.getElementById("q1").innerHTML = ""
+            document.getElementById("q1").appendChild(img);
+            $('#dialog').show();
+        }
 
     </script>
 

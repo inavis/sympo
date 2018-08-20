@@ -1,94 +1,17 @@
-
-
-$('#easy').click(function () {
-    alert("easy clicked")
-    $('.slider').slick({
-        dots: true,
-        arrows: true,
-        adaptiveHeight: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        //centerMode: true,
-        centerPadding: '60px',
-    });
-
-    $('.slide').on('click', function() {
-       // alert($('.slick-slide').index(this) -3); 
-       var currentIndex =$(this).data("slick-index"); //$('.slide').attr('data-slick-index');
-       alert(currentIndex);      
-        //$('.slider').slick('slickRemove', $('.slick-slide').index(this) -3)
-        $('.slider').slick('slickRemove', currentIndex );
-        });
-     $('.slider').css({ visibility: 'visible' });
-
-    });
-
-
-
-
-
-$('#medium').click(function () {
-    alert("medium clicked")
-    $('.slider1').slick({
-        dots: true,
-        arrows: true,
-        adaptiveHeight: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        //centerMode: true,
-        centerPadding: '60px',
-    });
-    $('.slide1').on('click', function() {
-        var currentIndex =$(this).data("slick-index");
-        alert(currentIndex );       
-        $('.slider1').slick('slickRemove',currentIndex );
-    });
-
-    $('.slider1').css({ visibility: 'visible' });
-
-    
-});
-
-$('#hard').click(function () {
-    alert("hard clicked")
-    $('.slider2').slick({
-        dots: true,
-        arrows: true,
-        adaptiveHeight: true,
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        //centerMode: true,
-        centerPadding: '60px',
-    });
-    $('.slide2').on('click', function() {
-        var currentIndex =$(this).data("slick-index");
-        alert(currentIndex);       
-        $('.slider2').slick('slickRemove', currentIndex);
-    });
-    
-     $('.slider2').css({ visibility: 'visible' });
-
-
-
-});
-
 function checkAns() {
     //alert("pannii")
     var coins = parseInt($("#coins").val())
-    // alert(coins);
-    // alert(getQues.qno)
     var ans = document.getElementById('text').value
-    //alert(ans)
-    var id = getQues.qno;
+    var row = getQues.row;
+    var col = getQues.col;
+    var correct;
+    // if(row==='0') 
     if (ans == easy[id][1]) {
         if (id >= 0 && id <= 9) {
             coins = coins + 10;
         }
         else if (id >= 10 && id <= 19) {
-            coins = coins + 20;
+            coins = coins + 30;
         }
         else {
             coins = coins + 50;
@@ -98,12 +21,10 @@ function checkAns() {
         alert("done for life")
 
     }
-    // alert(coins)
     document.getElementById("coins").value = coins;
 
     $('#dialog').hide()
     $('#transparent-bg').hide()
-    // document.getElementById("coins").value = coins;
     check()
 }
 function check() {
@@ -113,14 +34,14 @@ function check() {
         document.getElementById('medium').disabled = false
         document.getElementById('hard').disabled = false
     }
-    if (document.getElementById("coins").value >= 30 && document.getElementById("coins").value < 50) {
+    if (document.getElementById("coins").value >= 20 && document.getElementById("coins").value < 50) {
         alert("less")
         document.getElementById('easy').disabled = true
         document.getElementById('medium').disabled = false
         document.getElementById('hard').disabled = false
     }
 
-    if (document.getElementById("coins").value >= 10 && document.getElementById("coins").value < 30) {
+    if (document.getElementById("coins").value >= 10 && document.getElementById("coins").value < 20) {
 
         document.getElementById('easy').disabled = true
         document.getElementById('medium').disabled = true
@@ -134,43 +55,7 @@ function check() {
     $('.slider2').css({ visibility: 'hidden' })
 
 }
-function getQues(id) {
-    //  $("#tableManager").modal('show');
 
-    getQues.qno = id;
-    var coins = $("#coins").val()
-    alert("qn no:" + id)
-    if (id >= 0 && id <= 9) {
-        coins = coins - 50;
-        if (typeof getQues.eCount == 'undefined')
-            getQues.eCount = 1;
-        else
-            getQues.eCount += 1;
-    }
-    else if (id >= 10 && id <= 19) {
-        coins = coins - 30;
-        if (typeof getQues.mCount == 'undefined')
-            getQues.mCount = 1;
-        else
-            getQues.mCount += 1;
-    }
-    else {
-        coins = coins - 10;
-        if (typeof getQues.hCount == 'undefined')
-            getQues.hCount = 1;
-        else
-            getQues.hCount += 1;
-
-    }
-
-    document.getElementById("coins").value = coins;
-    $('#transparent-bg').show();
-    var img = document.createElement('img');
-    img.src = easy[id][0];
-    document.getElementById("q1").innerHTML = ""
-    document.getElementById("q1").appendChild(img);
-    $('#dialog').show();
-}
 
 document.getElementById('timer').innerHTML =
     30 + ":" + 01;
