@@ -1,16 +1,18 @@
 function checkAns() {
-    //alert("pannii")
+
     var coins = parseInt($("#coins").val())
+    alert("coins before is " + coins);
     var ans = document.getElementById('text').value
     var row = getQues.row;
     var col = getQues.col;
-    var correct;
+    var correct = getQues.ans;
     // if(row==='0') 
-    if (ans == easy[id][1]) {
-        if (id >= 0 && id <= 9) {
+    if (ans == correct) {
+        alert("right ans");
+        if (row === '0') {
             coins = coins + 10;
         }
-        else if (id >= 10 && id <= 19) {
+        else if (row === '1') {
             coins = coins + 30;
         }
         else {
@@ -18,7 +20,7 @@ function checkAns() {
         }
     }
     else {
-        alert("done for life")
+        alert("wrong ans")
 
     }
     document.getElementById("coins").value = coins;
@@ -29,26 +31,26 @@ function checkAns() {
 }
 function check() {
     if (document.getElementById("coins").value >= 50) {
-        alert("less")
+        alert(">=50")
         document.getElementById('easy').disabled = false
         document.getElementById('medium').disabled = false
         document.getElementById('hard').disabled = false
     }
     if (document.getElementById("coins").value >= 20 && document.getElementById("coins").value < 50) {
-        alert("less")
+        alert("20 - 50")
         document.getElementById('easy').disabled = true
         document.getElementById('medium').disabled = false
         document.getElementById('hard').disabled = false
     }
 
     if (document.getElementById("coins").value >= 10 && document.getElementById("coins").value < 20) {
-
+        alert("10 - 20");
         document.getElementById('easy').disabled = true
         document.getElementById('medium').disabled = true
         document.getElementById('hard').disabled = false
     }
     if (document.getElementById("coins").value < 10) {
-        alert("GAme over")
+        alert("You have 0 coins, Game over")
     }
     $('.slider').css({ visibility: 'hidden' })
     $('.slider1').css({ visibility: 'hidden' })
