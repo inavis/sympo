@@ -60,7 +60,7 @@ function check() {
 
 
 document.getElementById('timer').innerHTML =
-    30 + ":" + 01;
+    40 + ":" + 01;
 startTimer();
 
 function startTimer() {
