@@ -1,3 +1,8 @@
+var id=localStorage.getItem('text1');
+var hard=0;
+var easy=0;
+var medium=0;
+
 function checkAns() {
 
     var coins = parseInt($("#coins").val())
@@ -11,12 +16,15 @@ function checkAns() {
         alert("right ans");
         if (row === '0') {
             coins = coins + 10;
+            easy=easy+1;
         }
         else if (row === '1') {
             coins = coins + 30;
+            medium=medium+1;
         }
         else {
             coins = coins + 50;
+            hard=hard+1;
         }
     }
     else {
@@ -24,7 +32,7 @@ function checkAns() {
 
     }
     document.getElementById("coins").value = coins;
-
+    checkAns.pts=coins;
     $('#dialog').hide()
     $('#transparent-bg').hide()
     check()
@@ -51,16 +59,24 @@ function check() {
     }
     if (document.getElementById("coins").value < 10) {
         alert("You have 0 coins, Game over")
+        output()
     }
     $('.slider').css({ visibility: 'hidden' })
     $('.slider1').css({ visibility: 'hidden' })
     $('.slider2').css({ visibility: 'hidden' })
 
 }
-
+function output()
+{
+    $.ajax({
+        url:"db.php", 
+        type: "post", //request type,
+       data: {id:id ,pts: checkAns.pts , hard:hard, easy:easy,medium:medium }
+     });
+}
 
 document.getElementById('timer').innerHTML =
-    40 + ":" + 01;
+    30 + ":" + 01;
 startTimer();
 
 function startTimer() {
@@ -73,6 +89,7 @@ function startTimer() {
     }
     if (m == 0 && s == 00) {
 
+        output()
         $('#end-dialog').show()
         $('#transparent-bg').show()
     }
