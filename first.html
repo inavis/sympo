@@ -21,7 +21,7 @@
     <!--Heart-->
     <div class="heart-shape"></div>
     <!--Timer-->
-    <div id="timer">skdsfkh</div>
+    <div id="timer"></div>
     <!--Header-->
     <header id="main-header">
         <h1 id="heading">
@@ -202,10 +202,6 @@
         ]
         console.log(images[0])
         function next(id) {
-            alert("hi")
-            var my_url=new URL (window.location.href);
-            iddd=my_url.searchParams("login")
-            alert(iddd)
             var flag = 1;
             index[id] = boundary(id, index[id]);
             ind1[id] = index[id];
@@ -335,7 +331,7 @@
             getQues.row = row;
             getQues.col = col;
             getQues.ans = "";
-            alert("new getQuesksjfhkrh?");
+            alert("new getQues?");
             var coins = $("#coins").val()
             var img = document.createElement('img');
             if (row === '0') {

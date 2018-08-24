@@ -9,6 +9,7 @@ $pts=$_POST['pts'];
 $hard= $_POST['hard'];
 $easy= $_POST['easy'];
 $medium=$_POST['medium'];
-$sql="INSERT into USERS values ($id,$pts,$hard,$easy,$medium);";
+$sql="INSERT into USERS values ('$id','$pts','$hard','$easy','$medium');";
+mysqli_query($conn,$sql);
 
 ?>

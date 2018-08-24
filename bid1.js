@@ -1,14 +1,10 @@
 var loginID;
 var hard=0,id,medium=0,easy=0;
 var my_url=new URL (window.location.href);
-id=my_url.searchParams("login")
-alert(id)
-
-
+id=my_url.searchParams.get("login")
 function checkAns() {
-
-    alert("url="+my_url);
-    alert("id is" + id);
+    //alert("url="+my_url);
+    //alert("id is" + id);
     var coins = parseInt($("#coins").val())
     alert("coins before is " + coins);
     var ans = document.getElementById('text').value
