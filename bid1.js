@@ -1,10 +1,14 @@
-var id=localStorage.getItem('text1');
-var hard=0;
-var easy=0;
-var medium=0;
+var loginID;
+var hard=0,id,medium=0,easy=0;
+var my_url=new URL (window.location.href);
+id=my_url.searchParams("login")
+alert(id)
+
 
 function checkAns() {
 
+    alert("url="+my_url);
+    alert("id is" + id);
     var coins = parseInt($("#coins").val())
     alert("coins before is " + coins);
     var ans = document.getElementById('text').value
@@ -68,6 +72,7 @@ function check() {
 }
 function output()
 {
+    alert("Outputtt")
     $.ajax({
         url:"db.php", 
         type: "post", //request type,
@@ -75,12 +80,12 @@ function output()
      });
 }
 
-document.getElementById('timer').innerHTML =
-    30 + ":" + 01;
-startTimer();
+
+//startTimer();
 
 function startTimer() {
     var presentTime = document.getElementById('timer').innerHTML;
+    //alert(presentTime);
     var timeArray = presentTime.split(/[:]+/);
     var m = timeArray[0];
     var s = checkSecond((timeArray[1] - 1));
