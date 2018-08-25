@@ -68,7 +68,6 @@ function check() {
 }
 function output()
 {
-    alert("Outputtt")
     $.ajax({
         url:"db.php", 
         type: "post", //request type,
