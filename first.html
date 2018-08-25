@@ -44,64 +44,65 @@
     </section>
 
     <!--easy medium hard-->
-    <section id="section-1">
+    <section id="section-1" style="position: relative">
         <center>
             <article>
                 <button id="easy" onclick="next(0)">
-                    <img src="easy.jpg">
+                    <img src="easy.jpg" id="easy_img">
                 </button>
             </article>
             <article>
                 <button id="medium" onclick="next(1)">
-                    <img src="medium.jpg">
+                    <img src="medium.jpg" id="medium_img">
                 </button>
             </article>
             <article>
                 <button id="hard" onclick="next(2)">
-                    <img src="hard.jpg">
+                    <img src="hard.jpg" id="hard_img">
                 </button>
             </article>
         </center>
     </section>
     <section id="slide"></section>
-    <div class="flex-container" id="0flex" style="visibility: hidden;">
+
+    <div class="flex-container" id="0flex" style="visibility: hidden; position: absolute; top: 400;">
 
         <button id="0prev" width="100" height="100" class="prevButton">
-            <img src="images/left_arrow.png" width="30" height="30" />
+            <img src="images/left_arrow.png" width="20" height="20" />
         </button>
         <img id="00id" class="s">
         <img id="01id" class="s">
         <img id="02id" class="s">
         <button id="0next" class="nextButton">
-            <img src="images/right_arrow.png" width="30" height="30" />
+            <img src="images/right_arrow.png" width="20" height="20" />
         </button>
 
     </div>
-    <br>
-    <div class="flex-container" id="1flex" style="visibility: hidden;">
+
+    <div class="flex-container" id="1flex" style="visibility: hidden;position: absolute; top: 400;">
 
         <button id="1prev" width="100" height="100" class="prevButton">
-            <img src="images/left_arrow.png" width="30" height="30" />
+            <img src="images/left_arrow.png" width="20" height="20" />
         </button>
         <img id="10id" class="s" width="400" height="200">
         <img id="11id" class="s" width="400" height="200">
         <img id="12id" class="s" width="400" height="200">
         <button id="1next" width="200" height="200" class="nextButton">
-            <img src="images/right_arrow.png" width="30" height="30" />
+            <img src="images/right_arrow.png" width="20" height="20" />
         </button>
 
     </div>
-    <br>
-    <div class="flex-container" id="2flex" style="visibility: hidden;">
+
+    <div class="flex-container" id="2flex" style="visibility: hidden; position: absolute; top: 400;">
 
         <button id="2prev" class="prevButton" width="100" height="100">
-            <img src="images/left_arrow.png" width="30" height="30" />
+            <img src="images/left_arrow.png" width="20" height="20" />
         </button>
         <img id="20id" class="s" width="400" height="200">
         <img id="21id" class="s" width="400" height="200">
         <img id="22id" class="s" width="400" height="200">
         <button id="2next" class="nextButton" width="100" height="100">
-            <img src="images/right_arrow.png" width="30" height="30" />
+            <img src="images/right_arrow.png" width="20" height="20" />
         </button>
 
     </div>
@@ -119,7 +120,7 @@
 
     <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
 
-    <script src="bid1.js"> </script>
+
     <script>
 
 
@@ -205,7 +206,27 @@
         ]
         console.log(images[0])
         function next(id) {
+            //  alert(id);
+            if (id == '0') {
+                alert("clicked is easy")
+                document.getElementById("0flex").style.visibility = "visible";
+                document.getElementById("1flex").style.visibility = "hidden";
+                document.getElementById("2flex").style.visibility = "hidden";
 
+            }
+            else if (id == '1') {
+                alert("clicked is medium")
+                document.getElementById("0flex").style.visibility = "hidden";
+                document.getElementById("1flex").style.visibility = "visible";
+                document.getElementById("2flex").style.visibility = "hidden";
+
+            }
+            else {
+                alert("clicked is hard")
+                document.getElementById("0flex").style.visibility = "hidden";
+                document.getElementById("1flex").style.visibility = "hidden";
+                document.getElementById("2flex").style.visibility = "visible";
+            }
             var flag = 1;
             index[id] = boundary(id, index[id]);
             ind1[id] = index[id];
@@ -313,8 +334,8 @@
         //window.onload = next('1');
         ///window.onload = next('2');
         document.getElementById('timer').innerHTML =
-            1 + ":" + 01;
-        window.onload = startTimer();
+            40 + ":" + 01;
+        window.onload = startTimer()
 
         $('.prevButton').click(function () {
             var id = $(this).attr('id');
@@ -409,24 +430,45 @@
             check()
         }
         function check() {
+            var easy = document.getElementById('easy');
+            var medium = document.getElementById('medium');
+            var hard = document.getElementById('hard');
+            var easy_img = document.getElementById('easy_img');
+            var medium_img = document.getElementById('medium_img');
+            var hard_img = document.getElementById('hard_img');
+
             if (document.getElementById("coins").value >= 50) {
                 //    alert(">=50")
-                document.getElementById('easy').disabled = false
-                document.getElementById('medium').disabled = false
-                document.getElementById('hard').disabled = false
+                easy.disabled = false
+                medium.disabled = false
+                hard.disabled = false
             }
+
+
+
             if (document.getElementById("coins").value >= 20 && document.getElementById("coins").value < 50) {
                 //    alert("20 - 50")
-                document.getElementById('easy').disabled = true
-                document.getElementById('medium').disabled = false
-                document.getElementById('hard').disabled = false
+                easy.disabled = true
+                easy_img.style.opacity = "0.1";
+                easy_img.style.opacity = "alpha(opacity = 50);"
+
+
+                medium.disabled = false
+                hard.disabled = false
+
+
+                document.getElementById("0flex").style.visibility = "hidden";
+
             }
 
             if (document.getElementById("coins").value >= 10 && document.getElementById("coins").value < 20) {
                 //    alert("10 - 20");
-                document.getElementById('easy').disabled = true
-                document.getElementById('medium').disabled = true
-                document.getElementById('hard').disabled = false
+                easy.disabled = true
+                medium.disabled = true
+                hard.disabled = false
+
+                document.getElementById("0flex").style.visibility = "hidden";
+                document.getElementById("1flex").style.visibility = "hidden";
             }
             if (document.getElementById("coins").value < 10) {
                 alert("You have 0 coins, Game over")
@@ -434,9 +476,7 @@
                 $('#end-dialog').show()
                 $('#transparent-bg').show()
             }
-            $('.slider').css({ visibility: 'hidden' })
-            $('.slider1').css({ visibility: 'hidden' })
-            $('.slider2').css({ visibility: 'hidden' })
+
 
         }
         function output() {
