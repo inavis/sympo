@@ -55,12 +55,7 @@ body section img{
 }
 
 
-#ques {
-     width: 90%;
-    /*border: 1px solid #a00;
-    padding: 10px;
-    /*box-shadow: 3px 3px 10px 5px rgb(122, 25, 25) ;*/
-}
+
 
 #display img:hover{
     width: 300px;
@@ -120,37 +115,7 @@ body section img{
     margin-left: 400px;
 }
 
-.dialog{
-    /*margin-left: 200px;
-    margin-right: 200px; 
-    z-index: 6;
-    padding: 10px;
-    background: #fff;
-    max-width : 800px;
-    max-height:800px ;
-    border:  1px solid #f00;
-    color: #000*/
-    width:300px;
-	height:300px;
-	text-align:center;
-	border:solid 1px #bac0c3;
-	border-radius:5px;
-	box-shadow: 5px 10px 25px 5px #575754;
-	position:fixed;
-	left:50%;
-	top:40%;
-	margin-left:-150px;
-	margin-top:-60px;
-	z-index:1001;
-	display: none;
-	background:#fff;
-	animation: animationDropCenter 1s;
-}
-@keyframes animationDropCenter {
-	0% {
-		top:0%;
-	}
-}
+
 #transparent-bg{
 	position: fixed; 
 	top: 0%; 

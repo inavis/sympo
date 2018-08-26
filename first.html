@@ -12,6 +12,63 @@
     <title>JUDGE THE CODE</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="bid.css" />
+    <style>
+        .dialog {
+            width: 500px;
+            height: 400px;
+            text-align: center;
+            border: solid 1px #bac0c3;
+            border-radius: 5px;
+            box-shadow: 5px 10px 25px 5px #575754;
+            z-index: 1001;
+            display: none;
+            background: #fff;
+            animation: animationDropCenter 1s;
+            top: 30%;
+            left: 30%;
+            margin-top: -9em;
+            /*set to a negative number 1/2 of your height*/
+            /*set to a negative number 1/2 of your width*/
+            border: 1px solid #ccc;
+            position: fixed;
+        }
+
+        @keyframes animationDropCenter {
+            0% {
+                top: 10%;
+            }
+        }
+
+
+
+        .flex-container {
+            display: flex;
+            flex-direction: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 200;
+
+
+        }
+
+        .flex-container>img {
+
+            width: 25%;
+            height: 90%;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+
+        .flex-container>img:hover {
+            -ms-transform: scale(1.3);
+            /* IE 9 */
+            -webkit-transform: scale(1.3);
+            /* Safari 3-8 */
+            transform: scale(1.3);
+        }
+    </style>
 
 </head>
 
@@ -33,15 +90,17 @@
     </header>
     <!--QUes dialog-->
     <section class="dialog" id="dialog">
-        <div>
-            <div id="q1"></div>
 
-            <input type="textArea" placeholder="Line no or o/p.." id="text" />
-            <br>
-            <button id="submit" style="position:fixed;left: 450px;" onclick="checkAns()">SUBMIT</button>
+        <div id="q1"></div>
 
-        </div>
+        <input type="textArea" placeholder="Line no or o/p.." id="text" style=" position : absolute;height: 50;width:350;left:40;right:40 ;bottom:50"
+        />
+        <br>
+        <button id="submit" onclick="checkAns()" style=" position : absolute;right:40 ;">SUBMIT</button>
+
+
     </section>
+
 
     <!--easy medium hard-->
     <section id="section-1" style="position: relative">
@@ -132,13 +191,13 @@
         var time = 3000;
         Ques0 = [
             ["images/0.jpg", "00"],
-            ["images/1.jpg", "01"],
+            ["images/Q1.jpg", "01"],
             ["images/2.jpg", "02"],
             ["images/3.jpg", "03"],
             ["images/4.jpg", "04"],
             ["images/5.jpg", "05"],
             ["images/6.jpg", "06"],
-            ["images/7.jpg", "07"],
+            ["images/Q1.jpg", "07"],
             ["images/8.jpg", "08"],
             ["images/9.jpg", "09"]];
         Ques1 = [
@@ -361,6 +420,8 @@
             //alert("new getQues?");
             var coins = $("#coins").val()
             var img = document.createElement('img');
+            img.style.height = "350"
+            img.style.width = "250"
             if (row === '0') {
                 //   alert("row 0 col is " + col);
                 coins = coins - 50;
