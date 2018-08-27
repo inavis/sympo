@@ -117,6 +117,7 @@ function next(id) {
         document.getElementById("0flex").style.visibility = "hidden";
         document.getElementById("1flex").style.visibility = "visible";
         document.getElementById("2flex").style.visibility = "hidden";
+        document.getElementById('medium').setAttribute("data-bubble", images[id].length)
 
     }
     else {
@@ -124,6 +125,8 @@ function next(id) {
         document.getElementById("0flex").style.visibility = "hidden";
         document.getElementById("1flex").style.visibility = "hidden";
         document.getElementById("2flex").style.visibility = "visible";
+        document.getElementById('hard').setAttribute("data-bubble", images[id].length)
+
     }
     var flag = 1;
     index[id] = boundary(id, index[id]);
@@ -233,7 +236,7 @@ window.onload = startTimer()
 
 /*window.onbeforeunload = warning()
 function warning() {
-
+ 
     var pwwd = sessionStorage.getItem("SessionName");
     alert("pwd is " + pwwd)
     do {
@@ -347,8 +350,14 @@ function check() {
     if (document.getElementById("coins").value >= 50) {
         //    alert(">=50")
         easy.disabled = false
+        easy_img.style.opacity = "1";
+        easy_img.style.opacity = "alpha(opacity = 100);"
         medium.disabled = false
+        medium_img.style.opacity = "1";
+        medium_img.style.opacity = "alpha(opacity = 100);"
         hard.disabled = false
+        hard_img.style.opacity = "1";
+        hard_img.style.opacity = "alpha(opacity = 100);"
     }
 
 
@@ -361,8 +370,12 @@ function check() {
 
 
         medium.disabled = false
-        hard.disabled = false
+        medium_img.style.opacity = "1";
+        medium_img.style.opacity = "alpha(opacity = 100);"
 
+        hard.disabled = false
+        hard_img.style.opacity = "1";
+        hard_img.style.opacity = "alpha(opacity = 100);"
 
         document.getElementById("0flex").style.visibility = "hidden";
 
@@ -371,8 +384,14 @@ function check() {
     if (document.getElementById("coins").value >= 10 && document.getElementById("coins").value < 20) {
         //    alert("10 - 20");
         easy.disabled = true
+        easy_img.style.opacity = "0.1";
+        easy_img.style.opacity = "alpha(opacity = 50);"
         medium.disabled = true
+        medium_img.style.opacity = "0.1";
+        medium_img.style.opacity = "alpha(opacity = 50);"
         hard.disabled = false
+        hard_img.style.opacity = "1";
+        hard_img.style.opacity = "alpha(opacity = 100);"
 
         document.getElementById("0flex").style.visibility = "hidden";
         document.getElementById("1flex").style.visibility = "hidden";
