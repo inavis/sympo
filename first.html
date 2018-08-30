@@ -556,6 +556,7 @@
             /*set to a negative number 1/2 of your width*/
             border: 1px solid #ccc;
             position: fixed;
+            font-family:sans-serif;
         }
 
         table,
@@ -626,7 +627,7 @@
             <li>You can continue until you have time and coins to bid</li>
 
         </ul>
-        <button value="close" onclick="close_dia()">CLOSE</button>
+        <!--div style="text-align:center;"--><button value="close" onclick="close_dia()" style="position:absolute;left:40%;">CLOSE</button><!--/div-->
     </section>
     <!--To make bg gray-->
     <div id="transparent-bg"></div>
@@ -661,19 +662,19 @@
     </section>
 
     <!--easy medium hard-->
-    <section id="section-1" style="position: relative;display: flex;flex-flow: row nowrap">
+    <section id="section-1" style="position: relative;display: flex;flex-flow: row nowrap;clear: both;">
         <center>
             <article>
                 <p style="color: white;">EASY</p>
                 <button id="easy" onclick="next(0)" data-bubble=10 style="width:300">
-                    <img src="easy.jpg" id="easy_img">
+                    <img src="easyy.jpg" id="easy_img">
                 </button>
             </article>
 
             <article>
                 <p style="color: white;">MEDIUM</p>
                 <button id="medium" onclick="next(1)" data-bubble=10 style="width:300">
-                    <img src="medium.jpg" id="medium_img">
+                    <img src="mediuuum.jpg" id="medium_img">
                 </button>
             </article>
             <article>
@@ -681,7 +682,7 @@
                     HARD
                 </p>
                 <button id="hard" onclick="next(2)" data-bubble=10 style="width:300">
-                    <img src="hard.jpg" id="hard_img">
+                    <img src="haard.jpg" id="hard_img">
                 </button>
             </article>
         </center>
@@ -1184,8 +1185,8 @@
 
         }
         function output() {
-            alert("calling ajax" + id1 + " " + checkAns.pts + " " + hard1 + " " + easy1 + " " + medium1);
-            var data = { "id": "'+id1+'", "pts": "'+checkAns.pts+'", "hard": "'+hard1+", "easy": "'+easy1+'", "medium": "'+meduim1+'" };
+           // alert("calling ajax" + id1 + " " + checkAns.pts + " " + hard1 + " " + easy1 + " " + medium1);
+           // var data = { "id": "'+id1+'", "pts": "'+checkAns.pts+'", "hard": "'+hard1+", "easy": "'+easy1+'", "medium": "'+meduim1+'" };
             $.ajax({
                 url: "/db.php",
                 type: "POST", //request type,
@@ -1222,39 +1223,39 @@
         }
         console.log(Ques0[0])
         Ques0 = [
-            ["images/qe0.png", "00"],
-            ["images/qe1.png", "01"],
-            ["images/qe2.png", "02"],
-            ["images/qe3.png", "03"],
-            ["images/qe4.png", "04"],
-            ["images/qe5.png", "05"],
-            ["images/qe6.png", "06"],
-            ["images/qe7.png", "07"],
-            ["images/qe8.png", "08"],
-            ["images/qe9.png", "09"]];
+            "easy/0.png",
+            "easy/1.png", 
+            "easy/2.png", 
+            "easy/3.png",
+            "easy/4.png",
+            "easy/5.png",
+            "easy/6.png",
+            "easy/7.png", 
+            "easy/8.png",
+            "easy/9.png"];
         Ques1 = [
-            ["images/q0.png", "10"],
-            ["images/q1.png", "11"],
-            ["images/q2.png", "12"],
-            ["images/q3.png", "13"],
-            ["images/q4.png", "14"],
-            ["images/q5.png", "15"],
-            ["images/q6.png", "16"],
-            ["images/q7.png", "17"],
-            ["images/q8.png", "18"],
-            ["images/q9.png", "19"]
+            "medium/0.png",
+            "medium/1.png",
+            "medium/2.png",
+            "medium/3.png",
+            "medium/4.png",
+            "medium/5.png", 
+            "medium/6.png", 
+            "medium/7.png", 
+            "medium/8.png",
+            "medium/9.png",
         ];
         Ques2 = [
-            ["images/0.png", "20"],
-            ["images/1.png", "21"],
-            ["images/2.png", "22"],
-            ["images/3.png", "23"],
-            ["images/4.png", "24"],
-            ["images/5.png", "25"],
-            ["images/6.png", "26"],
-            ["images/7.png", "27"],
-            ["images/8.png", "28"],
-            ["images/9.png", "29"],
+            ["hardq/0.png", "20"],
+            ["hardq/1.png", "21"],
+            ["hardq/2.png", "22"],
+            ["hardq/3.png", "23"],
+            ["hardq/4.png", "24"],
+            ["hardq/5.png", "25"],
+            ["hardq/6.png", "26"],
+            ["hardq/7.png", "27"],
+            ["hardq/8.png", "28"],
+            ["hardq/9.png", "29"],
 
 
 
@@ -1299,38 +1300,38 @@
         ];
 
         images = [
-            ["images/0.jpg",
-                "images/1.jpg",
-                "images/2.jpg",
-                "images/3.jpg",
-                "images/4.jpg",
-                "images/5.jpg",
-                "images/6.jpg",
-                "images/7.jpg",
-                "images/8.jpg",
-                "images/9.jpg",
+            ["images/e1.jpg",
+                "images/e4.jpg",
+                "images/e5.jpg",
+                "images/e6.jpg",
+                "images/e7.jpg",
+                "images/e8.jpg",
+                "images/e9.jpg",
+                "images/e0.jpg",
+                "images/e2.jpg",
+                "images/e3.jpg",
             ],
-            ["images/0.jpg",
-                "images/1.jpg",
-                "images/2.jpg",
-                "images/3.jpg",
+            ["images/m0.jpg",
+                "images/m1.jpg",
+                "images/m2.jpg",
+                "images/m3.jpg",
                 "images/4.jpg",
                 "images/5.jpg",
                 "images/6.jpg",
-                "images/7.jpg",
-                "images/8.jpg",
-                "images/9.jpg",
+                "images/m0.jpg",
+                "images/m2.jpg",
+                "images/m1.jpg",
             ],
-            ["images/0.jpg",
-                "images/1.jpg",
-                "images/2.jpg",
-                "images/3.jpg",
-                "images/4.jpg",
-                "images/5.jpg",
-                "images/6.jpg",
-                "images/7.jpg",
-                "images/8.jpg",
-                "images/9.jpg",
+            ["images/g10.jpg",
+                "images/g2.jpg",
+                "images/g4.jpg",
+                "images/g6.jpg",
+                "images/g3.jpg",
+                "images/g9.jpg",
+                "images/g12.jpg",
+                "images/g1.jpg",
+                "images/g0.jpg",
+                "images/g00.jpg",
             ]
         ]
 
