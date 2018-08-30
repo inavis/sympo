@@ -1,4 +1,21 @@
+$(window).load(
+    function () {
+        preload(['images/0.jpg', 'images/1.jpg',
+            'images/2.jpg',
+            'images/3.jpg',
+            'images/4.jpg',
+            'images/5.jpg',
+            'images/6.jpg',
+            'images/7.jpg',
+            'images/8.jpg',
+            'images/9.jpg'])
+    });
 
+function preload(arrayOfImages) {
+    $(arrayOfImages).each(function () {
+        $('<img />').attr('src', this).appendTo('body').css('display', 'none');
+    });
+}
 
 //to remove back button
 history.pushState(null, null, document.URL);
@@ -17,7 +34,7 @@ $(document).on("keydown", disableF5);
 $(document).unbind("keydown", disableF5);
 /* OR jQuery >= 1.7 */
 $(document).off("keydown", disableF5);
-document.addEventListener('contextmenu', event => event.preventDefault());
+//  document.addEventListener('contextmenu', event => event.preventDefault());
 
 
 
@@ -27,85 +44,12 @@ var index = [0, 0, 0];
 var images = [[]];
 var Ques0 = [[]], Ques1 = [[]], Ques2 = [[]];
 var time = 3000;
-Ques0 = [
-    ["images/0.jpg", "00"],
-    ["images/Q1.jpg", "01"],
-    ["images/2.jpg", "02"],
-    ["images/3.jpg", "03"],
-    ["images/4.jpg", "04"],
-    ["images/5.jpg", "05"],
-    ["images/6.jpg", "06"],
-    ["images/Q1.jpg", "07"],
-    ["images/8.jpg", "08"],
-    ["images/9.jpg", "09"]];
-Ques1 = [
-    ["images/0.jpg", "10"],
-    ["images/1.jpg", "11"],
-    ["images/2.jpg", "12"],
-    ["images/3.jpg", "13"],
-    ["images/4.jpg", "14"],
-    ["images/5.jpg", "15"],
-    ["images/6.jpg", "16"],
-    ["images/7.jpg", "17"],
-    ["images/8.jpg", "18"],
-    ["images/9.jpg", "19"]
-];
-Ques2 = [
-    ["images/0.jpg", "20"],
-    ["images/1.jpg", "21"],
-    ["images/2.jpg", "22"],
-    ["images/3.jpg", "23"],
-    ["images/4.jpg", "24"],
-    ["images/5.jpg", "25"],
-    ["images/6.jpg", "26"],
-    ["images/7.jpg", "27"],
-    ["images/8.jpg", "28"],
-    ["images/9.jpg", "29"],
 
-
-
-];
-
-images = [
-    ["images/0.jpg",
-        "images/1.jpg",
-        "images/2.jpg",
-        "images/3.jpg",
-        "images/4.jpg",
-        "images/5.jpg",
-        "images/6.jpg",
-        "images/7.jpg",
-        "images/8.jpg",
-        "images/9.jpg",
-    ],
-    ["images/0.jpg",
-        "images/1.jpg",
-        "images/2.jpg",
-        "images/3.jpg",
-        "images/4.jpg",
-        "images/5.jpg",
-        "images/6.jpg",
-        "images/7.jpg",
-        "images/8.jpg",
-        "images/9.jpg",
-    ],
-    ["images/0.jpg",
-        "images/1.jpg",
-        "images/2.jpg",
-        "images/3.jpg",
-        "images/4.jpg",
-        "images/5.jpg",
-        "images/6.jpg",
-        "images/7.jpg",
-        "images/8.jpg",
-        "images/9.jpg",
-    ]
-]
 console.log(images[0])
 function next(id) {
     //  alert(id);
     if (id == 0) {
-        alert("clicked is easy")
+        //  alert("clicked is easy")
         document.getElementById("0flex").style.visibility = "visible";
         document.getElementById("1flex").style.visibility = "hidden";
         document.getElementById("2flex").style.visibility = "hidden";
@@ -231,7 +175,7 @@ function remove_function(row, col) {
 
 }
 document.getElementById('timer').innerHTML =
-    40 + ":" + 01;
+    02 + ":" + 01;
 window.onload = startTimer()
 
 /*window.onbeforeunload = warning()
@@ -301,9 +245,9 @@ function getQues(row, col) {
 
 
 var loginID;
-var hard = 0, id, medium = 0, easy = 0;
+var hard1 = 0, id1, medium1 = 0, easy1 = 0;
 var my_url = new URL(window.location.href);
-id = my_url.searchParams.get("login")
+id1 = my_url.searchParams.get("login")
 function checkAns() {
     //  alert("url=" + my_url);
     // alert("id is" + id);
@@ -318,15 +262,15 @@ function checkAns() {
         alert("right ans");
         if (row === '0') {
             coins = coins + 10;
-            easy = easy + 1;
+            easy1 = easy1 + 1;
         }
         else if (row === '1') {
             coins = coins + 30;
-            medium = medium + 1;
+            medium1 = medium1 + 1;
         }
         else {
             coins = coins + 50;
-            hard = hard + 1;
+            hard1 = hard1 + 1;
         }
     }
     else {
@@ -406,12 +350,16 @@ function check() {
 
 }
 function output() {
-    alert("Outputtt " + id);
+    alert("calling ajax" + id1 + " " + checkAns.pts + " " + hard1 + " " + easy1 + " " + medium1);
+    var data = { "id": "'+id1+'", "pts": "'+checkAns.pts+'", "hard": "'+hard1+", "easy": "'+easy1+'", "medium": "'+meduim1+'" };
     $.ajax({
-        url: "db.php",
-        type: "post", //request type,
-        data: { id: id, pts: checkAns.pts, hard: hard, easy: easy, medium: medium }
+        url: "/db.php",
+        type: "POST", //request type,
+        //   contentType: "application/json; charset=utf-8",
+        //   data : JSON.stringify(data),
+        data: { id2: id1, pts2: checkAns.pts, hard2: hard1, easy2: easy1, medium2: medium1 }
     });
+
 }
 
 //startTimer();
@@ -438,6 +386,80 @@ function startTimer() {
     if (!(m == 0 && s == 00))
         setTimeout(startTimer, 1000);
 }
+Ques0 = [
+    ["images/0.jpg", "00"],
+    ["images/Q1.jpg", "01"],
+    ["images/2.jpg", "02"],
+    ["images/3.jpg", "03"],
+    ["images/4.jpg", "04"],
+    ["images/5.jpg", "05"],
+    ["images/6.jpg", "06"],
+    ["images/Q1.jpg", "07"],
+    ["images/8.jpg", "08"],
+    ["images/9.jpg", "09"]];
+Ques1 = [
+    ["images/0.jpg", "10"],
+    ["images/1.jpg", "11"],
+    ["images/2.jpg", "12"],
+    ["images/3.jpg", "13"],
+    ["images/4.jpg", "14"],
+    ["images/5.jpg", "15"],
+    ["images/6.jpg", "16"],
+    ["images/7.jpg", "17"],
+    ["images/8.jpg", "18"],
+    ["images/9.jpg", "19"]
+];
+Ques2 = [
+    ["images/0.jpg", "20"],
+    ["images/1.jpg", "21"],
+    ["images/2.jpg", "22"],
+    ["images/3.jpg", "23"],
+    ["images/4.jpg", "24"],
+    ["images/5.jpg", "25"],
+    ["images/6.jpg", "26"],
+    ["images/7.jpg", "27"],
+    ["images/8.jpg", "28"],
+    ["images/9.jpg", "29"],
+
+
+
+];
+
+images = [
+    ["images/0.jpg",
+        "images/1.jpg",
+        "images/2.jpg",
+        "images/3.jpg",
+        "images/4.jpg",
+        "images/5.jpg",
+        "images/6.jpg",
+        "images/7.jpg",
+        "images/8.jpg",
+        "images/9.jpg",
+    ],
+    ["images/0.jpg",
+        "images/1.jpg",
+        "images/2.jpg",
+        "images/3.jpg",
+        "images/4.jpg",
+        "images/5.jpg",
+        "images/6.jpg",
+        "images/7.jpg",
+        "images/8.jpg",
+        "images/9.jpg",
+    ],
+    ["images/0.jpg",
+        "images/1.jpg",
+        "images/2.jpg",
+        "images/3.jpg",
+        "images/4.jpg",
+        "images/5.jpg",
+        "images/6.jpg",
+        "images/7.jpg",
+        "images/8.jpg",
+        "images/9.jpg",
+    ]
+]
 
 function checkSecond(sec) {
     if (sec < 10 && sec >= 0) { sec = "0" + sec }; // add zero in front of numbers < 10

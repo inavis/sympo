@@ -249,25 +249,7 @@ body section img{
 }
 
   
-.dialog {
-    width: 500px;
-    height: 400px;
-    text-align: center;
-    border: solid 1px #bac0c3;
-    border-radius: 5px;
-    box-shadow: 5px 10px 25px 5px #575754;
-    z-index: 1001;
-    display: none;
-    background: #fff;
-    animation: animationDropCenter 1s;
-    top: 30%;
-    left: 30%;
-    margin-top: -9em;
-    /*set to a negative number 1/2 of your height*/
-    /*set to a negative number 1/2 of your width*/
-    border: 1px solid #ccc;
-    position: fixed;
-}
+
 
 @keyframes animationDropCenter {
     0% {

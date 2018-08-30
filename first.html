@@ -12,6 +12,8 @@
     <title>JUDGE THE CODE</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="bid.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
     <style>
         #section-1 {
             display: inline-block;
@@ -97,11 +99,535 @@
                 z-index: 1;
             }
         }
+
+
+        body {
+            background: rgba(0, 0, 0, 1);
+        }
+
+        P {
+            color: #fff;
+        }
+
+        #heading {
+            display: inline-block;
+            margin-left: 40%;
+            color: #f00
+        }
+
+        h2 {
+            float: right;
+            margin-right: 15px;
+            margin-top: 2%;
+            color: red;
+        }
+
+        #main-header {
+
+            border: 2px solid #000;
+            /*border-style: none;*/
+        }
+
+        #section-1 article {
+            display: inline-block;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        body section img {
+            max-width: 100%;
+            height: 30%;
+        }
+
+        #section-1 {
+            margin: auto;
+            margin-top: 20px;
+        }
+
+
+        #display {
+            /*margin-left: 80px;
+    margin-right: 80px;
+    /*overflow: hidden;*/
+            /*removes all the overflowed content--outside the limit*/
+            margin: 0 auto;
+            display: block;
+            /*background:#a00;*/
+            color: #fff;
+            /*overflow-x: hidden;  /*to remove  horizontal scroll bar when not needed*/
+            position: absolute;
+            /*left: 100px;*/
+            width: 70%;
+            margin-left: 200px;
+        }
+
+
+
+
+        #display img:hover {
+            width: 300px;
+            height: 300px;
+        }
+
+        #display img {
+            border: 1px solid #000;
+            padding: 10px;
+            margin-left: 350px;
+        }
+
+        #submit {
+            size: 500px;
+            margin-left: 200px;
+            background: black;
+            padding: 5px 10px;
+            color: red;
+            border: none;
+            border-radius: 5px;
+
+            animation-name: flash;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+
+            /*Firefox 1+*/
+            -webkit-animation-name: flash;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-timing-function: linear;
+            -webkit-animation-iteration-count: infinite;
+
+            /*Safari 3-4*/
+            -moz-animation-name: flash;
+            -moz-animation-duration: 1s;
+            -moz-animation-timing-function: linear;
+            -moz-animation-iteration-count: infinite;
+        }
+
+        @keyframes flash {
+            0% {
+                opacity: 1.0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1.0;
+            }
+        }
+
+        /*//Firefox 1+
+@-webkit-keyframes flash {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}
+
+//Safari 3-4
+@-moz-keyframes flash {  
+    0% { opacity: 1.0; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1.0; }
+}*/
+
+        #ans {
+            margin-left: 400px;
+        }
+
+
+        #transparent-bg {
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            -moz-opacity: 0.80;
+            opacity: 0.80;
+            filter: alpha(opacity=30);
+            z-index: 1000;
+            /*-webkit-animation: animateBackground 1s;
+    animation: animateBackground 1s ;*/
+            display: block;
+        }
+
+
+        /*@keyframes animateBackground {
+	from {opacity: 0.8;}
+	to {opacity: 0.30;}*/
+
+        .heart-shape {
+            position: relative;
+            left: 10px;
+            top: 50px;
+            width: 50px;
+            -webkit-animation: heart-beats 1s infinite;
+            animation: heart-beats 1s infinite;
+        }
+
+        .heart-shape:before,
+        .heart-shape:after {
+            margin-left: 10px;
+            margin-top: 20px;
+            background: #fd3803;
+            position: absolute;
+            width: 22px;
+            height: 35px;
+            top: 0;
+            left: 22px;
+            content: '';
+            border-radius: 50px 50px 0 0;
+            transform: rotate(-45deg) translateZ(0);
+            -webkit-transform: rotate(-45deg) translateZ(0);
+            transform-origin: 0 100%;
+            -webkit-transform-origin: 0 100%;
+        }
+
+        .heart-shape:after {
+            left: 0;
+            transform: rotate(45deg) translateZ(0);
+            -webkit-transform: rotate(45deg) translateZ(0);
+            transform-origin: 100% 100%;
+            -webkit-transform-origin: 100% 100%;
+        }
+
+
+        @keyframes heart-beats {
+            0% {
+                transform: scale(1);
+                background-color: black;
+            }
+            7% {
+                transform: scale(1.2);
+            }
+            12% {
+                transform: scale(1.1);
+            }
+            20% {
+                transform: scale(1.3);
+            }
+            60% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(0.99);
+            }
+        }
+
+        @-webkit-keyframes heart-beats {
+            0% {
+                -webkit-transform: scale(1);
+            }
+            7% {
+                -webkit-transform: scale(1.2);
+            }
+            12% {
+                -webkit-transform: scale(1.1);
+            }
+            20% {
+                -webkit-transform: scale(1.3);
+            }
+            60% {
+                -webkit-transform: scale(1);
+            }
+            100% {
+                -webkit-transform: scale(0.99);
+            }
+        }
+
+
+        #timer {
+            float: left;
+            font-size: 50px;
+            color: red;
+        }
+
+
+        .heart-shape,
+        #timer {
+            position: fixed;
+        }
+
+        .flex-container {
+            left: 0%;
+            display: flex;
+            flex-direction: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 200;
+
+
+        }
+
+        .flex-container>div {
+
+            width: 25%;
+            height: 90%;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+
+        .flex-container>div>img {
+
+            width: 100%;
+            height: 100%;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+
+        .flex-container>img:hover {
+            -ms-transform: scale(1.3);
+            /* IE 9 */
+            -webkit-transform: scale(1.3);
+            /* Safari 3-8 */
+            transform: scale(1.3);
+        }
+
+
+        /*  .dialog {
+            width: 500px;
+            height: 800px;
+            text-align: center;
+            border: solid 1px #bac0c3;
+            border-radius: 5px;
+            box-shadow: 5px 10px 25px 5px #575754;
+            z-index: 1001;
+            display: none;
+            background: #fff;
+            animation: animationDropCenter 1s;
+            top: 30%;
+            left: 30%;
+            margin-top: -9em;
+            /*set to a negative number 1/2 of your height*/
+
+        /*set to a negative number 1/2 of your width
+            border: 1px solid #ccc;
+            position: fixed;
+        }*/
+
+        @keyframes animationDropCenter {
+            0% {
+                top: 10%;
+            }
+        }
+
+
+
+        .flex-container {
+            display: flex;
+            flex-direction: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+            height: 200;
+
+
+        }
+
+        .flex-container>img {
+
+            width: 25%;
+            height: 90%;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+
+        .flex-container>img:hover {
+            -ms-transform: scale(1.3);
+            /* IE 9 */
+            -webkit-transform: scale(1.3);
+            /* Safari 3-8 */
+            transform: scale(1.3);
+        }
+
+        /*  #section-1 img {
+
+            border: solid 1px #bac0c3;
+            border-radius: 20%;
+            width: 50%;
+
+        }
+
+        #section-1 button {
+
+            border: solid 1px #bac0c3;
+            border-radius: 20%;
+            width: 50%
+        }
+*/
+
+        #section-1 button[data-bubble]:after {
+            content: attr(data-bubble);
+            position: absolute;
+            top: 30;
+            height: 1.5em;
+            line-height: 1.5em;
+            padding: 0 .46em;
+            text-align: center;
+            text-shadow: 0 0.063em 0 rgba(0, 0, 0, .2);
+            background-color: #FFFF00;
+            color: #364652;
+            box-shadow: 0 0.063em 0.063em rgba(0, 0, 0, .2);
+            border-radius: 4em;
+            z-index: -1;
+            -webkit-transform: translateZ(0);
+            /*Prevents text flicker*/
+            will-change: transform;
+        }
+
+        #section-1 button:hover[data-bubble]:after {
+            -webkit-animation: ease bubbleover .4s;
+            animation: ease bubbleover .4s;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            top: -2.25em;
+            /* If pseudo animation not supported [see https://css-tricks.com/transitions-and-animations-on-css-generated-content/], simple hover fallback happens*/
+            z-index: 1;
+        }
+
+        @-webkit-keyframes bubbleover {
+            0% {
+                -webkit-transform: translate(0, 1em);
+                z-index: -1
+            }
+            50% {
+                -webkit-transform: translate(0, -.5em);
+                z-index: -1
+            }
+            100% {
+                -webkit-transform: translate(0, 0);
+                z-index: 1;
+            }
+        }
+
+        @keyframes bubbleover {
+            0% {
+                top: 0;
+                transform: translate(0, 0);
+                z-index: -1;
+            }
+            50% {
+                transform: translate(0, -12px);
+                z-index: -1
+            }
+            100% {
+                transform: translate(0, 6px);
+                z-index: 1;
+            }
+        }
+
+        .dialog {
+            width: 500px;
+            height: 500px;
+            text-align: center;
+            border: solid 1px #bac0c3;
+            border-radius: 5px;
+            box-shadow: 5px 10px 25px 5px #575754;
+            z-index: 1001;
+            display: none;
+            background: #fff;
+            animation: animationDropCenter 1s;
+            top: 30%;
+            left: 30%;
+            margin-top: -9em;
+            /*set to a negative number 1/2 of your height*/
+            /*set to a negative number 1/2 of your width*/
+            border: 1px solid #ccc;
+            position: fixed;
+        }
+
+        #dialog_ins {
+            width: 500px;
+            height: 400px;
+            border: solid 1px #bac0c3;
+            border-radius: 5px;
+            box-shadow: 5px 10px 25px 5px #575754;
+            z-index: 1001;
+            visibility: visible;
+            background: #fff;
+            animation: animationDropCenter 1s;
+            top: 30%;
+            left: 30%;
+            margin-top: -9em;
+            /*set to a negative number 1/2 of your height*/
+            /*set to a negative number 1/2 of your width*/
+            border: 1px solid #ccc;
+            position: fixed;
+        }
+
+        table,
+        th,
+        td {
+            border: 2px solid gray;
+        }
+
+        .slide {
+            position: relative;
+
+        }
+
+        .slide>div {
+            width: 100%;
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            color: white;
+
+            background-color: gray;
+            display: none;
+        }
     </style>
 
 </head>
 
 <body id="total">
+    <!--instructions dialog box-->
+    <section id="dialog_ins">
+        <h1>TIME TO BEGIN YOUR JOURNEY...</h1>
+        <ul>
+            <li>
+                Your journey starts with 100 coins
+            </li>
+            <li>
+                You can bid your coins and choose questions of different difficulty level
+            </li>
+            <table style="width: 100%;">
+                <tr>
+                    <th>DIFFICULTY</th>
+                    <th>COINS BIIDED</th>
+                    <th>COINS GAINED</th>
+                </tr>
+                <tr>
+                    <td>easy</td>
+                    <td>50</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>medium</td>
+                    <td>20</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>hard</td>
+                    <td>10</td>
+                    <td>50</td>
+                </tr>
+            </table>
+            <li>
+                Based on the coins available only questions cane be chosen
+            </li>
+            <li>
+                Each section consists of 10 questions
+            </li>
+
+            <li>You can continue until you have time and coins to bid</li>
+
+        </ul>
+        <button value="close" onclick="close_dia()">CLOSE</button>
+    </section>
     <!--To make bg gray-->
     <div id="transparent-bg"></div>
     <!--Heart-->
@@ -114,15 +640,19 @@
             <img src="images/logooo.png" />
         </h1>
         <h2>COINS:
-            <input type="number" value=50 id="coins" readonly/>
+            <input type="number" value=1000 id="coins" readonly/>
+        </h2>
+        <h2>
+            <button id="help" onclick="get_help()">HELP</button>
         </h2>
     </header>
     <!--QUes dialog-->
     <section class="dialog" id="dialog">
 
-        <div id="q1"></div>
+        <!--  <div id="q1"></div>-->
+        <img id="q1" style="height:90%;width:100%" />
 
-        <input type="textArea" placeholder="Line no or o/p.." id="text" style=" position : absolute;height: 50;width:350;left:40;right:40 ;bottom:50"
+        <input type="textArea" placeholder="Line no or o/p.." id="text" style=" position : absolute;height: 35;width:350;left:40;right:40 ;bottom:10"
         />
         <br>
         <button id="submit" onclick="checkAns()" style=" position : absolute;right:40 ;">SUBMIT</button>
@@ -131,24 +661,26 @@
     </section>
 
     <!--easy medium hard-->
-    <section id="section-1" style="position: relative">
+    <section id="section-1" style="position: relative;display: flex;flex-flow: row nowrap">
         <center>
             <article>
-
-                <button id="easy" onclick="next(0)" data-bubble=10>
+                <p style="color: white;">EASY</p>
+                <button id="easy" onclick="next(0)" data-bubble=10 style="width:300">
                     <img src="easy.jpg" id="easy_img">
                 </button>
             </article>
 
             <article>
-
-                <button id="medium" onclick="next(1)" data-bubble=10>
+                <p style="color: white;">MEDIUM</p>
+                <button id="medium" onclick="next(1)" data-bubble=10 style="width:300">
                     <img src="medium.jpg" id="medium_img">
                 </button>
             </article>
             <article>
-
-                <button id="hard" onclick="next(2)" data-bubble=10>
+                <p style="color: white;">
+                    HARD
+                </p>
+                <button id="hard" onclick="next(2)" data-bubble=10 style="width:300">
                     <img src="hard.jpg" id="hard_img">
                 </button>
             </article>
@@ -161,9 +693,18 @@
         <button id="0prev" width="100" height="100" class="prevButton">
             <img src="images/left_arrow.png" width="20" height="20" />
         </button>
-        <img id="00id" class="s">
-        <img id="01id" class="s">
-        <img id="02id" class="s">
+        <div class="slide" onmouseover="get_genre('00t')" onmouseout="dgenre('00t')">
+            <img id="00id" class="s" />
+            <div id="00t">Text1</div>
+        </div>
+        <div class="slide" onmouseover="get_genre('01t')" onmouseout="dgenre('01t')">
+            <img id="01id" class="s" />
+            <div id="01t">Text2</div>
+        </div>
+        <div class="slide" onmouseover="get_genre('02t')" onmouseout="dgenre('02t')">
+            <img id="02id" class="s" />
+            <div id="02t">Text3</div>
+        </div>
         <button id="0next" class="nextButton">
             <img src="images/right_arrow.png" width="20" height="20" />
         </button>
@@ -175,9 +716,18 @@
         <button id="1prev" width="100" height="100" class="prevButton">
             <img src="images/left_arrow.png" width="20" height="20" />
         </button>
-        <img id="10id" class="s" width="400" height="200">
-        <img id="11id" class="s" width="400" height="200">
-        <img id="12id" class="s" width="400" height="200">
+        <div class="slide" onmouseover="get_genre('10t')" onmouseout="dgenre('10t')">
+            <img id="10id" class="s" />
+            <div id="10t">Text1</div>
+        </div>
+        <div class="slide" onmouseover="get_genre('11t')" onmouseout="dgenre('11t')">
+            <img id="11id" class="s" />
+            <div id="11t">Text2</div>
+        </div>
+        <div class="slide" onmouseover="get_genre('12t')" onmouseout="dgenre('12t')">
+            <img id="12id" class="s" />
+            <div id="12t">Text3</div>
+        </div>
         <button id="1next" width="200" height="200" class="nextButton">
             <img src="images/right_arrow.png" width="20" height="20" />
         </button>
@@ -189,20 +739,608 @@
         <button id="2prev" class="prevButton" width="100" height="100">
             <img src="images/left_arrow.png" width="20" height="20" />
         </button>
-        <img id="20id" class="s" width="400" height="200">
-        <img id="21id" class="s" width="400" height="200">
-        <img id="22id" class="s" width="400" height="200">
+        <div class="slide" onmouseover="get_genre('20t')" onmouseout="dgenre('20t')">
+            <img id="20id" class="s" />
+            <div id="20t">Text1</div>
+        </div>
+        <div class="slide" onmouseover="get_genre('21t')" onmouseout="dgenre('21t')">
+            <img id="21id" class="s" />
+            <div id="21t">Text2</div>
+        </div>
+        <div class="slide" onmouseover="get_genre('22t')" onmouseout="dgenre('22t')">
+            <img id="22id" class="s" />
+            <div id="22t">Text3</div>
+        </div>
         <button id="2next" class="nextButton" width="100" height="100">
             <img src="images/right_arrow.png" width="20" height="20" />
         </button>
 
     </div>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
-
-    <script type="text/javascript" src="bid1.js">
-    </script>
+    <!--  <script src="http://code.jquery.com/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>-->
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <!-- <script type="text/javascript" src="bid1.js">
+    </script>-->
     <script type="text/javascript">
+        function close_dia() {
+            //alert("clicked");
+            document.getElementById("dialog_ins").style.visibility = "hidden";
+            document.getElementById("transparent-bg").style.display = "none";
 
+        }
+        function get_help() {
+            document.getElementById("dialog_ins").style.visibility = "visible";
+            document.getElementById("transparent-bg").style.display = "block";
+        }
+
+        function get_genre(id) {
+            //   alert("new mouseover");
+            document.getElementById(id).style.display = "block";
+        }
+        function dgenre(id) {
+            //   alert("poiruchu")
+            document.getElementById(id).style.display = "none";
+        }
+        $(window).load(
+            function () {
+                preload(['images/0.jpg', 'images/1.jpg',
+                    'images/2.jpg',
+                    'images/3.jpg',
+                    'images/4.jpg',
+                    'images/5.jpg',
+                    'images/6.jpg',
+                    'images/7.jpg',
+                    'images/8.jpg',
+                    'images/9.jpg'])
+            });
+
+        function preload(arrayOfImages) {
+            $(arrayOfImages).each(function () {
+                $('<img />').attr('src', this).appendTo('body').css('display', 'none');
+            });
+        }
+
+        //to remove back button
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+
+        function disableF5(e) { if ((e.which || e.keyCode) == 116 || e.keyCode == 82) e.preventDefault(); };
+        // To disable f5
+        /* jQuery < 1.7 */
+        $(document).bind("keydown", disableF5);
+        /* OR jQuery >= 1.7 */
+        $(document).on("keydown", disableF5);
+        // To re-enable f5
+        /* jQuery < 1.7 */
+        $(document).unbind("keydown", disableF5);
+        /* OR jQuery >= 1.7 */
+        $(document).off("keydown", disableF5);
+        //  document.addEventListener('contextmenu', event => event.preventDefault());
+
+
+
+
+        var ind1 = [0, 0, 0], ind2 = [1, 1, 1], ind3 = [2, 2, 2];
+        var index = [0, 0, 0];
+        var images = [[]], genre = [[]];
+        var Ques0 = [[]], Ques1 = [[]], Ques2 = [[]];
+        var Ans0 = [[]], Ans1 = [[]], Ans2 = [[]];
+        var time = 3000;
+
+        genre = [
+            ["h00", "h01", "h02", "h03", "h04", "h05", "h06", "h07", "h08", "h09"
+            ],
+            ["h10", "h11", "h12", "h13", "h14", "h15", "h16", "h17", "h18", "h19"
+            ],
+            ["h20", "h21", "h22", "h23", "h24", "h25", "h26", "h27", "h28", "h29"
+            ]
+        ]
+        Ans = [
+            ["00", "01", "02", "03", "04", "h05", "h06", "h07", "h08", "h09"
+            ],
+            ["h10", "h11", "h12", "h13", "h14", "h15", "h16", "h17", "h18", "h19"
+            ],
+            ["h20", "h21", "h22", "h23", "h24", "h25", "h26", "h27", "h28", "h29"
+            ]
+        ]
+        console.log(genre[0]);
+        console.log(images[0])
+        function next(id) {
+            //  alert(id);
+            if (id == 0) {
+                //  alert("clicked is easy")
+                document.getElementById("0flex").style.visibility = "visible";
+                document.getElementById("1flex").style.visibility = "hidden";
+                document.getElementById("2flex").style.visibility = "hidden";
+                alert("length" + images[id].length)
+                document.getElementById('easy').setAttribute("data-bubble", images[id].length)
+            }
+            else if (id == '1') {
+                alert("clicked is medium")
+                document.getElementById("0flex").style.visibility = "hidden";
+                document.getElementById("1flex").style.visibility = "visible";
+                document.getElementById("2flex").style.visibility = "hidden";
+                document.getElementById('medium').setAttribute("data-bubble", images[id].length)
+
+            }
+            else {
+                alert("clicked is hard")
+                document.getElementById("0flex").style.visibility = "hidden";
+                document.getElementById("1flex").style.visibility = "hidden";
+                document.getElementById("2flex").style.visibility = "visible";
+                document.getElementById('hard').setAttribute("data-bubble", images[id].length)
+
+            }
+            var flag = 1;
+            index[id] = boundary(id, index[id]);
+            ind1[id] = index[id];
+            var x = id + "0id";
+            var y = id + "0t";
+            document.getElementById(y).innerHTML = genre[id][index[id]];
+            document.getElementById(x).src = images[id][index[id]++]
+
+            index[id] = boundary(id, index[id]);
+            ind2[id] = index[id];
+            var x = id + "1id";
+            y = id + "1t";
+            document.getElementById(y).innerHTML = genre[id][index[id]];
+            document.getElementById(x).src = images[id][index[id]++]
+            if (index[id] == images[id].length - 1) flag = 0
+            index[id] = boundary(id, index[id]);
+            ind3[id] = index[id];
+            var x = id + "2id";
+            y = id + "2t";
+            document.getElementById(y).innerHTML = genre[id][index[id]];
+            document.getElementById(x).src = images[id][index[id]++]
+
+            index[id] = boundary(id, index[id]);
+            if (typeof id === "number" && flag === 1) {
+                prev(id);
+            }
+            document.getElementById(id + "flex").style.visibility = "visible";
+            console.log("ind1[0] " + ind1[0] + " ind2[0] " + ind2[0] + " ind3[0] " + ind3[0])
+        }
+
+
+        function prev(id) {
+            for (var k = 0; k < 6; k++) {
+                if (index[id] === -1) index[id] = images[id].length - 1;
+                index[id] = index[id] - 1;
+            }
+
+            index[id] = boundary(id, index[id]);
+            ind1[id] = index[id];
+            var x = id + "0id";
+            var y = id + "0t";
+            document.getElementById(y).innerHTML = genre[id][index[id]];
+            document.getElementById(x).src = images[id][index[id]++]
+
+            index[id] = boundary(id, index[id]);
+            ind2[id] = index[id];
+            var x = id + "1id";
+            y = id + "1t";
+            document.getElementById(y).innerHTML = genre[id][index[id]];
+            document.getElementById(x).src = images[id][index[id]++]
+
+
+            index[id] = boundary(id, index[id]);
+            ind3[id] = index[id];
+            var x = id + "2id";
+            y = id + "2t";
+            document.getElementById(y).innerHTML = genre[id][index[id]];
+            document.getElementById(x).src = images[id][index[id]++]
+
+            index[id] = boundary(id, index[id]);
+        }
+        function boundary(id, i) {
+            if (i < 0)
+                i = images[id].length - 1;
+            if (i > images[id].length - 1)
+                i = 0;
+            return i;
+        }
+        function remove_function(row, col) {
+
+            console.log("before :" + images[row]);
+            var remove_col;
+            if (col === '0') {
+                remove_col = ind1[row];
+                getQues(row, remove_col);
+                console.log("q before remove " + Ques0[row]);
+                Ques0.splice(row, 1);
+
+                //   genre[0].splice(row, 1);
+                //   images[0].splice(row, 1);
+                console.log("q after remove " + Ques0[row]);
+
+            }
+            else if (col === '1') {
+                remove_col = ind2[row];
+                getQues(row, remove_col);
+
+                console.log("q before remove " + Ques1[row]);
+                Ques1.splice(row, 1);
+                console.log("genre before: " + genre[1]);
+                //   genre[1].splice(row, 1);
+                console.log("genre after: " + genre[1]);
+                //   images[1].splice(row, 1);
+                console.log("q after remove " + Ques1[row]);
+
+            }
+            else {
+
+                remove_col = ind3[row];
+                getQues(row, remove_col);
+                console.log("q before remove " + Ques2[row]);
+                Ques2.splice(row, 1);
+                //    genre[2].splice(row, 1);
+                // images[2].splice(row, 1);
+                console.log("q after remove " + Ques2[row]);
+
+            }
+            console.log("image to be removed " + row + remove_col)
+            images[row].splice(remove_col, 1);
+            console.log("after :" + images[row]);
+            if (images[row].length == 2)
+                document.getElementById(row + "2id").remove();
+            if (images[row].length == 1)
+                document.getElementById(row + "1id").remove();
+            if (images[row].length == 0) {
+                document.getElementById(row + "0id").remove();
+                document.getElementById(row + "prev").remove();
+                document.getElementById(row + "next").remove();
+            }
+
+            next(parseInt(row));
+
+
+        }
+        document.getElementById('timer').innerHTML =
+            02 + ":" + 01;
+        window.onload = startTimer()
+
+        /*window.onbeforeunload = warning()
+        function warning() {
+         
+            var pwwd = sessionStorage.getItem("SessionName");
+            alert("pwd is " + pwwd)
+            do {
+                input = prompt("Give input");
+            } while (input != pwwd);
+            sessionStorage.setItem("SessionName", "changed");
+            alert(sessionStorage.getItem("SessionName"))
+        }*/
+        $('.prevButton').click(function () {
+            var id = $(this).attr('id');
+            prev(id.charAt(0));
+
+        });
+
+        $('.nextButton').click(function () {
+            var id = $(this).attr('id');
+            next(id.charAt(0));
+        })
+
+        $('.s').click(function () {
+            var id = $(this).attr('id');
+            console.log(id)
+            remove_function(id.charAt(0), id.charAt(1));
+
+        });
+        function getQues(row, col) {
+            getQues.row = row;
+            getQues.col = col;
+            getQues.ans = "";
+            //alert("new getQues?");
+            var coins = $("#coins").val()
+            var img = document.createElement('img');
+            var src;
+            img.style.height = "350"
+            img.style.width = "250"
+            genre[row].splice(col, 1);
+            getQues.ans = Ans[row][col];
+
+            if (row === '0') {
+                alert("row 0 col is " + col);
+
+                coins = coins - 50;
+                // img.src = Ques0[col][0];
+                src = Ques0[col][0];
+
+                //   getQues.ans = Ques0[col][1];
+            }
+            else if (row === '1') {
+                alert("row 1 col is " + col);
+                coins = coins - 20;
+                // img.src = Ques1[col][0];
+                src = Ques1[col][0];
+                // getQues.ans = Ques1[col][1];
+            }
+            else {
+                //alert(row + col)
+                alert("row 2 col is " + col);
+                coins = coins - 10;
+                console.log(Ques2[col][0])
+                // img.src = Ques2[col][0];
+                src = Ques2[col][0];
+                // getQues.ans = Ques2[col][1];
+            }
+            document.getElementById("coins").value = coins;
+            $('#transparent-bg').show();
+            //     document.getElementById("q1").innerHTML = ""
+            //     document.getElementById("q1").appendChild(img);
+            document.getElementById("q1").src = src;
+            alert("ans is " + getQues.ans)
+            Ans[row].splice(col, 1);
+            $('#dialog').show();
+        }
+
+
+        var loginID;
+        var hard1 = 0, id1, medium1 = 0, easy1 = 0;
+        var my_url = new URL(window.location.href);
+        id1 = my_url.searchParams.get("login")
+        function checkAns() {
+            //  alert("url=" + my_url);
+            // alert("id is" + id);
+            var coins = parseInt($("#coins").val())
+            //  alert("coins before is " + coins);
+            var ans = document.getElementById('text').value
+            var row = getQues.row;
+            var col = getQues.col;
+            var correct = getQues.ans;
+            // if(row==='0') 
+            if (ans == correct) {
+                alert("right ans");
+                if (row === '0') {
+                    coins = coins + 10;
+                    easy1 = easy1 + 1;
+                }
+                else if (row === '1') {
+                    coins = coins + 30;
+                    medium1 = medium1 + 1;
+                }
+                else {
+                    coins = coins + 50;
+                    hard1 = hard1 + 1;
+                }
+            }
+            else {
+                alert("wrong ans")
+
+            }
+            document.getElementById("coins").value = coins;
+            checkAns.pts = coins;
+            $('#dialog').hide()
+            $('#transparent-bg').hide()
+            check()
+        }
+        function check() {
+            var easy = document.getElementById('easy');
+            var medium = document.getElementById('medium');
+            var hard = document.getElementById('hard');
+            var easy_img = document.getElementById('easy_img');
+            var medium_img = document.getElementById('medium_img');
+            var hard_img = document.getElementById('hard_img');
+
+            if (document.getElementById("coins").value >= 50) {
+                //    alert(">=50")
+                easy.disabled = false
+                easy_img.style.opacity = "1";
+                easy_img.style.opacity = "alpha(opacity = 100);"
+                medium.disabled = false
+                medium_img.style.opacity = "1";
+                medium_img.style.opacity = "alpha(opacity = 100);"
+                hard.disabled = false
+                hard_img.style.opacity = "1";
+                hard_img.style.opacity = "alpha(opacity = 100);"
+            }
+
+
+
+            if (document.getElementById("coins").value >= 20 && document.getElementById("coins").value < 50) {
+                //    alert("20 - 50")
+                easy.disabled = true
+                easy_img.style.opacity = "0.1";
+                easy_img.style.opacity = "alpha(opacity = 50);"
+
+
+                medium.disabled = false
+                medium_img.style.opacity = "1";
+                medium_img.style.opacity = "alpha(opacity = 100);"
+
+                hard.disabled = false
+                hard_img.style.opacity = "1";
+                hard_img.style.opacity = "alpha(opacity = 100);"
+
+                document.getElementById("0flex").style.visibility = "hidden";
+
+            }
+
+            if (document.getElementById("coins").value >= 10 && document.getElementById("coins").value < 20) {
+                //    alert("10 - 20");
+                easy.disabled = true
+                easy_img.style.opacity = "0.1";
+                easy_img.style.opacity = "alpha(opacity = 50);"
+                medium.disabled = true
+                medium_img.style.opacity = "0.1";
+                medium_img.style.opacity = "alpha(opacity = 50);"
+                hard.disabled = false
+                hard_img.style.opacity = "1";
+                hard_img.style.opacity = "alpha(opacity = 100);"
+
+                document.getElementById("0flex").style.visibility = "hidden";
+                document.getElementById("1flex").style.visibility = "hidden";
+            }
+            if (document.getElementById("coins").value < 10) {
+                alert("You have 0 coins, Game over")
+                output()
+                $('#end-dialog').show()
+                $('#transparent-bg').show()
+            }
+
+
+        }
+        function output() {
+            alert("calling ajax" + id1 + " " + checkAns.pts + " " + hard1 + " " + easy1 + " " + medium1);
+            var data = { "id": "'+id1+'", "pts": "'+checkAns.pts+'", "hard": "'+hard1+", "easy": "'+easy1+'", "medium": "'+meduim1+'" };
+            $.ajax({
+                url: "/db.php",
+                type: "POST", //request type,
+                //   contentType: "application/json; charset=utf-8",
+                //   data : JSON.stringify(data),
+                data: { id2: id1, pts2: checkAns.pts, hard2: hard1, easy2: easy1, medium2: medium1 }
+            });
+
+        }
+
+        //startTimer();
+
+        function startTimer() {
+            var presentTime = document.getElementById('timer').innerHTML;
+            //alert(presentTime);
+            var timeArray = presentTime.split(/[:]+/);
+            var m = timeArray[0];
+            var s = checkSecond((timeArray[1] - 1));
+            if (s == 59) {
+                m = m - 1
+            }
+            if (m == 0 && s == 00) {
+
+                output()
+                $('#end-dialog').show()
+                $('#transparent-bg').show()
+            }
+            //if(m<0){alert('timer completed')}
+
+            document.getElementById('timer').innerHTML =
+                m + ":" + s;
+            if (!(m == 0 && s == 00))
+                setTimeout(startTimer, 1000);
+        }
+        console.log(Ques0[0])
+        Ques0 = [
+            ["images/qe0.png", "00"],
+            ["images/qe1.png", "01"],
+            ["images/qe2.png", "02"],
+            ["images/qe3.png", "03"],
+            ["images/qe4.png", "04"],
+            ["images/qe5.png", "05"],
+            ["images/qe6.png", "06"],
+            ["images/qe7.png", "07"],
+            ["images/qe8.png", "08"],
+            ["images/qe9.png", "09"]];
+        Ques1 = [
+            ["images/q0.png", "10"],
+            ["images/q1.png", "11"],
+            ["images/q2.png", "12"],
+            ["images/q3.png", "13"],
+            ["images/q4.png", "14"],
+            ["images/q5.png", "15"],
+            ["images/q6.png", "16"],
+            ["images/q7.png", "17"],
+            ["images/q8.png", "18"],
+            ["images/q9.png", "19"]
+        ];
+        Ques2 = [
+            ["images/0.png", "20"],
+            ["images/1.png", "21"],
+            ["images/2.png", "22"],
+            ["images/3.png", "23"],
+            ["images/4.png", "24"],
+            ["images/5.png", "25"],
+            ["images/6.png", "26"],
+            ["images/7.png", "27"],
+            ["images/8.png", "28"],
+            ["images/9.png", "29"],
+
+
+
+        ];
+        Ans0 = [
+            ["00"],
+            ["01"],
+            ["02"],
+            ["03"],
+            ["04"],
+            ["05"],
+            ["06"],
+            ["07"],
+            ["images/qe8.png", "08"],
+            ["images/qe9.png", "09"]];
+        Ques1 = [
+            ["images/q0.png", "10"],
+            ["images/q1.png", "11"],
+            ["images/q2.png", "12"],
+            ["images/q3.png", "13"],
+            ["images/q4.png", "14"],
+            ["images/q5.png", "15"],
+            ["images/q6.png", "16"],
+            ["images/q7.png", "17"],
+            ["images/q8.png", "18"],
+            ["images/q9.png", "19"]
+        ];
+        Ques2 = [
+            ["images/0.png", "20"],
+            ["images/1.png", "21"],
+            ["images/2.png", "22"],
+            ["images/3.png", "23"],
+            ["images/4.png", "24"],
+            ["images/5.png", "25"],
+            ["images/6.png", "26"],
+            ["images/7.png", "27"],
+            ["images/8.png", "28"],
+            ["images/9.png", "29"],
+
+
+
+        ];
+
+        images = [
+            ["images/0.jpg",
+                "images/1.jpg",
+                "images/2.jpg",
+                "images/3.jpg",
+                "images/4.jpg",
+                "images/5.jpg",
+                "images/6.jpg",
+                "images/7.jpg",
+                "images/8.jpg",
+                "images/9.jpg",
+            ],
+            ["images/0.jpg",
+                "images/1.jpg",
+                "images/2.jpg",
+                "images/3.jpg",
+                "images/4.jpg",
+                "images/5.jpg",
+                "images/6.jpg",
+                "images/7.jpg",
+                "images/8.jpg",
+                "images/9.jpg",
+            ],
+            ["images/0.jpg",
+                "images/1.jpg",
+                "images/2.jpg",
+                "images/3.jpg",
+                "images/4.jpg",
+                "images/5.jpg",
+                "images/6.jpg",
+                "images/7.jpg",
+                "images/8.jpg",
+                "images/9.jpg",
+            ]
+        ]
+
+
+
+        function checkSecond(sec) {
+            if (sec < 10 && sec >= 0) { sec = "0" + sec }; // add zero in front of numbers < 10
+            if (sec < 0) { sec = "59" };
+            return sec;
+        }
     </script>
 </body>
 <!-- end dialog-->
